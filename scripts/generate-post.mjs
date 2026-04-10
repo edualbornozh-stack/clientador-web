@@ -2,42 +2,25 @@
 /**
  * generate-post.mjs
  * Genera automáticamente una nota de blog para Clientador usando Claude API.
- *
- * Uso:
- *   node scripts/generate-post.mjs                  # Genera el próximo tema pendiente
- *   node scripts/generate-post.mjs --push            # Genera + commit + push a GitHub
- *   node scripts/generate-post.mjs --slug "mi-tema"  # Genera un tema específico
+ * Los temas se generan dinámicamente — nunca se agotan.
  */
 
 import Anthropic from "@anthropic-ai/sdk";
 import fs from "fs";
 import path from "path";
-import { execSync } from "child_process";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
-
-// ─── Config ───────────────────────────────────────────────
 const BLOG_POSTS_FILE = path.join(ROOT, "src/lib/blog-posts.ts");
-const TOPICS_FILE = path.join(ROOT, "scripts/topics.json");
-const GITHUB_REMOTE = "https://github.com/edualbornozh-stack/clientador-web.git";
 
-const args = process.argv.slice(2);
-const shouldPush = args.includes("--push");
-const slugArg = args.find((a) => a.startsWith("--slug="))?.split("=")[1];
-
-// ─── Helpers ──────────────────────────────────────────────
-function getExistingSlugs() {
+function getExistingSlugsAndTitles() {
   const content = fs.readFileSync(BLOG_POSTS_FILE, "utf-8");
-  const matches = content.match(/slug:\s*["']([^"']+)["']/g) || [];
-  return matches.map((m) => m.match(/["']([^"']+)["']/)[1]);
-}
-
-function getNextTopic(existingSlugs) {
-  const topics = JSON.parse(fs.readFileSync(TOPICS_FILE, "utf-8"));
-  if (slugArg) return topics.find((t) => t.slug === slugArg) || null;
-  return topics.find((t) => !existingSlugs.includes(t.slug)) || null;
+  const slugs = (content.match(/slug:\s*["']([^"']+)["']/g) || [])
+    .map((m) => m.match(/["']([^"']+)["']/)[1]);
+  const titles = (content.match(/title:\s*["']([^"']+)["']/g) || [])
+    .map((m) => m.match(/["']([^"']+)["']/)[1]);
+  return { slugs, titles };
 }
 
 function getCurrentMonth() {
@@ -48,166 +31,138 @@ function getCurrentMonth() {
 
 function appendPostToFile(post) {
   const content = fs.readFileSync(BLOG_POSTS_FILE, "utf-8");
-
-  // Serializar el post como TypeScript
-  const postTs = `  ${JSON.stringify(post, null, 2)
-    .replace(/^/gm, "  ")
-    .trimStart()},`;
-
-  // Insertar antes del cierre del array
-  const updated = content.replace(
-    /^];$/m,
-    `${postTs}\n];`
-  );
-
+  const postTs = `  ${JSON.stringify(post, null, 2).replace(/^/gm, "  ").trimStart()},`;
+  const updated = content.replace(/^];$/m, `${postTs}\n];`);
   fs.writeFileSync(BLOG_POSTS_FILE, updated, "utf-8");
 }
 
-// ─── Main ─────────────────────────────────────────────────
 async function main() {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    console.error("❌ Falta ANTHROPIC_API_KEY en las variables de entorno.");
-    console.error("   Agrega ANTHROPIC_API_KEY=sk-... a tu .env.local o exporta la variable.");
+    console.error("❌ Falta ANTHROPIC_API_KEY");
     process.exit(1);
   }
 
-  const existingSlugs = getExistingSlugs();
-  const topic = getNextTopic(existingSlugs);
+  const client = new Anthropic({ apiKey });
+  const { slugs: existingSlugs, titles: existingTitles } = getExistingSlugsAndTitles();
 
-  if (!topic) {
-    console.log("✅ Todos los temas del topics.json ya están publicados.");
-    console.log("   Agrega nuevos temas a scripts/topics.json para continuar.");
-    process.exit(0);
+  console.log(`\n🧠 Generando idea de tema (${existingSlugs.length} posts publicados)...`);
+
+  // ── Paso 1: Claude elige el tema ──────────────────────────
+  const topicPrompt = `Eres el estratega de contenido de Clientador, una plataforma de IA para pymes latinoamericanas (WhatsApp Business API, CRM inteligente, agenda automática, chatbots multicanal).
+
+Ya existen estos artículos publicados (NO repitas estos temas):
+${existingTitles.map((t, i) => `${i + 1}. ${t}`).join("\n")}
+
+Genera UNA nueva idea de artículo de blog, distinta a las anteriores, que:
+- Sea útil para dueños de pymes en Chile, México, Colombia, Argentina o Perú
+- Esté orientada a un rubro específico O a una funcionalidad de IA para negocios
+- Tenga alto potencial SEO en búsquedas en español latinoamericano
+- Sirva para atraer clientes a Clientador
+
+Responde ÚNICAMENTE con JSON válido (sin markdown):
+{
+  "slug": "slug-en-kebab-case-unico",
+  "title": "Título del artículo atractivo y con keyword principal",
+  "category": "Categoría del artículo",
+  "keywords": ["keyword 1", "keyword 2", "keyword 3", "keyword 4"],
+  "geo": ["País o ciudad 1", "País o ciudad 2", "País o ciudad 3"]
+}`;
+
+  const topicMsg = await client.messages.create({
+    model: "claude-sonnet-4-6",
+    max_tokens: 512,
+    messages: [{ role: "user", content: topicPrompt }],
+  });
+
+  const topicRaw = topicMsg.content[0].text.trim()
+    .replace(/^```json\s*/i, "").replace(/\s*```$/i, "");
+  const topic = JSON.parse(topicRaw);
+
+  // Verificar que el slug no exista ya
+  if (existingSlugs.includes(topic.slug)) {
+    topic.slug = `${topic.slug}-${Date.now()}`;
   }
 
-  console.log(`\n📝 Generando artículo: "${topic.title}"`);
+  console.log(`✅ Tema elegido: "${topic.title}"`);
   console.log(`   Slug: ${topic.slug}`);
   console.log(`   Categoría: ${topic.category}\n`);
+  console.log(`📝 Generando artículo completo...`);
 
-  const client = new Anthropic({ apiKey });
+  // ── Paso 2: Claude escribe el artículo completo ───────────
+  const articlePrompt = `Eres el redactor de contenido de Clientador, una plataforma de IA para pymes latinoamericanas (WhatsApp Business API, CRM inteligente, agenda automática, chatbots).
 
-  const prompt = `Eres el redactor de contenido de Clientador, una plataforma de IA para pymes latinoamericanas (WhatsApp Business API, CRM inteligente, agenda automática, chatbots).
-
-Genera un artículo de blog completo en español, persuasivo y optimizado para SEO/GEO, con el siguiente tema:
+Genera un artículo de blog completo en español, persuasivo y optimizado para SEO/GEO:
 
 TÍTULO: ${topic.title}
 CATEGORÍA: ${topic.category}
 KEYWORDS SEO: ${topic.keywords.join(", ")}
-PAÍSES/CIUDADES TARGET: ${topic.geo.join(", ")}
+PAÍSES TARGET: ${topic.geo.join(", ")}
 
 El artículo debe:
-1. Ser informativo pero siempre terminar llevando al lector a contratar Clientador
+1. Ser genuinamente útil e informativo — no solo publicidad
 2. Mencionar naturalmente los países/ciudades target para SEO local
-3. Incluir datos y estadísticas (puedes inventar cifras verosímiles)
-4. Tener un tono profesional pero cercano, en español latinoamericano
+3. Incluir datos y estadísticas verosímiles
+4. Tono profesional pero cercano, en español latinoamericano
 5. Duración: 8-12 minutos de lectura
-6. Mencionar Clientador de forma natural, no agresiva, como la solución recomendada
+6. Mencionar Clientador de forma natural como la solución recomendada al final
 
-Responde ÚNICAMENTE con un JSON válido con esta estructura exacta (sin markdown, sin texto extra):
+Responde ÚNICAMENTE con JSON válido (sin markdown, sin texto extra):
 
 {
   "slug": "${topic.slug}",
   "title": "${topic.title}",
-  "metaTitle": "título SEO de máx 65 caracteres",
-  "metaDescription": "descripción SEO de máx 155 caracteres con keyword principal",
+  "metaTitle": "título SEO máx 65 caracteres",
+  "metaDescription": "descripción SEO máx 155 caracteres con keyword principal",
   "category": "${topic.category}",
   "date": "${getCurrentMonth()}",
   "readTime": "X min lectura",
-  "intro": "párrafo introductorio de 2-3 oraciones que engancha al lector",
+  "intro": "párrafo introductorio 2-3 oraciones que engancha al lector",
   "sections": [
     {
       "type": "text",
       "title": "Título de sección",
-      "content": "párrafos separados por doble salto de línea (\\n\\n)"
+      "content": "párrafos separados por doble salto (\\n\\n)"
     },
     {
       "type": "cards",
-      "title": "Título de sección con beneficios/comparativas",
-      "items": [
-        { "label": "01 — Label del punto", "content": "descripción del punto" }
-      ]
+      "title": "Título sección beneficios/comparativas",
+      "items": [{ "label": "01 — Label", "content": "descripción" }]
     },
     {
       "type": "steps",
-      "title": "Título de sección con pasos",
-      "items": [
-        { "label": "Paso 1: Nombre del paso", "content": "descripción del paso" }
-      ]
+      "title": "Título sección pasos",
+      "items": [{ "label": "Paso 1: Nombre", "content": "descripción" }]
     },
     {
       "type": "bullets",
-      "title": "Título de lista",
-      "bullets": [
-        { "text": "texto del punto", "negative": false }
-      ]
+      "title": "Título lista",
+      "bullets": [{ "text": "texto del punto", "negative": false }]
     }
   ],
-  "ctaTitle": "título del call to action al final del artículo",
-  "ctaDescription": "descripción del CTA, máx 2 oraciones, orientada a agendar demo"
+  "ctaTitle": "título del CTA final",
+  "ctaDescription": "2 oraciones orientadas a agendar demo con Clientador"
 }
 
-Usa entre 4 y 6 secciones variando los tipos. Incluye al menos una sección de tipo "cards" y una de tipo "text". El artículo debe sentirse como una guía experta, no como publicidad directa.`;
+Usa 4-6 secciones variando los tipos. Al menos una "cards" y una "text".`;
 
-  try {
-    const message = await client.messages.create({
-      model: "claude-opus-4-6",
-      max_tokens: 4096,
-      messages: [{ role: "user", content: prompt }],
-    });
+  const articleMsg = await client.messages.create({
+    model: "claude-opus-4-6",
+    max_tokens: 4096,
+    messages: [{ role: "user", content: articlePrompt }],
+  });
 
-    const rawJson = message.content[0].text.trim();
+  const articleRaw = articleMsg.content[0].text.trim()
+    .replace(/^```json\s*/i, "").replace(/\s*```$/i, "");
+  const post = JSON.parse(articleRaw);
 
-    // Limpiar por si Claude agrega ```json
-    const cleanJson = rawJson.replace(/^```json\s*/i, "").replace(/\s*```$/i, "");
-    const post = JSON.parse(cleanJson);
+  console.log(`✅ Artículo generado — ${post.sections.length} secciones, ${post.readTime}`);
 
-    console.log("✅ Artículo generado correctamente");
-    console.log(`   Secciones: ${post.sections.length}`);
-    console.log(`   Tiempo lectura: ${post.readTime}\n`);
-
-    appendPostToFile(post);
-    console.log(`✅ Post agregado a src/lib/blog-posts.ts`);
-
-    // Actualizar sitemap con nuevo slug
-    const sitemapFile = path.join(ROOT, "src/app/sitemap.ts");
-    const sitemapContent = fs.readFileSync(sitemapFile, "utf-8");
-    if (!sitemapContent.includes(post.slug)) {
-      console.log(`ℹ️  El sitemap se actualiza automáticamente desde blog-posts.ts`);
-    }
-
-    if (shouldPush) {
-      console.log("\n🚀 Haciendo commit y push a GitHub...");
-      try {
-        execSync(`cd "${ROOT}" && git add src/lib/blog-posts.ts`, { stdio: "inherit" });
-        execSync(
-          `cd "${ROOT}" && git commit -m "feat(blog): nuevo artículo — ${post.title.slice(0, 60)}"`,
-          { stdio: "inherit" }
-        );
-
-        const token = process.env.GITHUB_TOKEN;
-        const remote = token
-          ? GITHUB_REMOTE.replace("https://", `https://${token}@`)
-          : GITHUB_REMOTE;
-
-        execSync(`cd "${ROOT}" && git push "${remote}" main`, { stdio: "inherit" });
-        console.log("✅ Push exitoso — Vercel desplegará automáticamente en ~1 minuto");
-      } catch (e) {
-        console.error("❌ Error en git push:", e.message);
-        console.error("   Asegúrate de tener GITHUB_TOKEN en el entorno o autenticación SSH configurada.");
-      }
-    } else {
-      console.log("\nℹ️  Para publicar automáticamente, ejecuta:");
-      console.log("   ANTHROPIC_API_KEY=... GITHUB_TOKEN=... node scripts/generate-post.mjs --push\n");
-    }
-  } catch (err) {
-    if (err instanceof SyntaxError) {
-      console.error("❌ Error parseando el JSON de Claude. Intenta de nuevo.");
-    } else {
-      console.error("❌ Error:", err.message);
-    }
-    process.exit(1);
-  }
+  appendPostToFile(post);
+  console.log(`✅ Post guardado en blog-posts.ts\n`);
 }
 
-main();
+main().catch((err) => {
+  console.error("❌ Error:", err.message);
+  process.exit(1);
+});
