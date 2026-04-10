@@ -1,0 +1,41 @@
+name: Daily Blog Post
+
+on:
+  schedule:
+    - cron: "0 10 * * *"   # Todos los días a las 10:00 UTC (7am Chile)
+  workflow_dispatch:         # También se puede lanzar manualmente desde GitHub
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate blog post
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-post.mjs
+
+      - name: Commit and push new post
+        run: |
+          git config user.name "Clientador Bot"
+          git config user.email "bot@clientador.com"
+          git add src/lib/blog-posts.ts
+          git diff --cached --quiet && echo "No hay post nuevo (todos los temas ya publicados)" && exit 0
+          git commit -m "feat(blog): post automático del día $(date +'%Y-%m-%d')"
+          git push
