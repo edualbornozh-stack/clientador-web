@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import DepthBackground from "@/components/DepthBackground";
+import BookingButton from "@/components/BookingButton";
 
 export const metadata: Metadata = {
   title: "Sobre Nosotros – Clientador | IA para Pymes en Latinoamérica",
@@ -168,14 +169,9 @@ export default function SobreNosotrosPage() {
             <p className="text-base mb-8 max-w-xl mx-auto leading-relaxed" style={{ color: "#94a3b8" }}>
               Agenda una demo gratuita y te mostramos en vivo cómo Clientador puede automatizar tu atención al cliente y multiplicar tus ventas desde esta semana.
             </p>
-            <a
-              href="https://mi.clientador.com/widget/booking/9BIrfq1qKd6NoCAObqzO"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary px-10 py-4 inline-block text-sm"
-            >
+            <BookingButton className="btn-primary px-10 py-4 inline-block text-sm">
               AGENDAR DEMO GRATUITA
-            </a>
+            </BookingButton>
           </div>
         </div>
       </div>

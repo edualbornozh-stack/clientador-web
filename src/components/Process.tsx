@@ -1,3 +1,7 @@
+"use client";
+
+import { useBookingModal } from "@/components/BookingModal";
+
 const STEPS = [
   {
     num: "01",
@@ -26,6 +30,7 @@ const STEPS = [
 ];
 
 export default function Process() {
+  const { open } = useBookingModal();
   return (
     <section className="py-20" style={{ background: "transparent" }}>
       <div className="max-w-6xl mx-auto px-4">
@@ -71,14 +76,12 @@ export default function Process() {
         </div>
 
         <div className="mt-12 text-center">
-          <a
-            href="https://mi.clientador.com/widget/booking/9BIrfq1qKd6NoCAObqzO"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={open}
             className="btn-primary px-8 py-4 text-sm"
           >
             Comenzar ahora — es gratis
-          </a>
+          </button>
         </div>
       </div>
     </section>

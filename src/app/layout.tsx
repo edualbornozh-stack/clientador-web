@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
+import { BookingModalProvider } from "@/components/BookingModal";
 import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
 
@@ -214,10 +215,12 @@ export default function RootLayout({
         className={`${inter.variable} ${plusJakarta.variable} min-h-screen flex flex-col antialiased font-sans`}
         style={{ backgroundColor: "#020617", margin: 0, padding: 0 }}
       >
-        <SmoothScroll>
-          <Navbar />
-          {children}
-        </SmoothScroll>
+        <BookingModalProvider>
+          <SmoothScroll>
+            <Navbar />
+            {children}
+          </SmoothScroll>
+        </BookingModalProvider>
       </body>
     </html>
   );

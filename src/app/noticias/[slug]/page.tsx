@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import DepthBackground from "@/components/DepthBackground";
 import { BLOG_POSTS } from "@/lib/blog-posts";
+import BookingButton from "@/components/BookingButton";
 
 export function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
@@ -178,14 +179,9 @@ export default async function NoticiaPage({
             <p className="mb-6 leading-relaxed" style={{ color: "#94a3b8" }}>
               {post.ctaDescription}
             </p>
-            <a
-              href="https://mi.clientador.com/widget/booking/9BIrfq1qKd6NoCAObqzO"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary px-8 py-3 inline-block"
-            >
+            <BookingButton className="btn-primary px-8 py-3 inline-block">
               Agenda una demo gratuita
-            </a>
+            </BookingButton>
           </div>
 
         </div>

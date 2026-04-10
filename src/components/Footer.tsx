@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useBookingModal } from "@/components/BookingModal";
 
 const SOCIAL = [
   {
@@ -52,6 +53,7 @@ const SOCIAL = [
 ];
 
 export default function Footer() {
+  const { open } = useBookingModal();
   return (
     <footer className="text-white py-12" style={{ background: "#04010d" }}>
       <div className="max-w-6xl mx-auto px-4">
@@ -111,7 +113,7 @@ export default function Footer() {
                 <Link href="/noticias" className="hover:text-white transition-colors">Noticias</Link>
               </li>
               <li>
-                <a href="https://mi.clientador.com/widget/booking/9BIrfq1qKd6NoCAObqzO" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Contacto</a>
+                <button onClick={open} className="hover:text-white transition-colors">Contacto</button>
               </li>
             </ul>
           </div>

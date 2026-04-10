@@ -2,11 +2,13 @@
 
 import Marquee from "@/components/Marquee";
 import DashboardMockup from "@/components/DashboardMockup";
+import { useBookingModal } from "@/components/BookingModal";
 
 
 
 /* ─── Component ──────────────────────────────────────────── */
 export default function Hero() {
+  const { open } = useBookingModal();
   return (
     <section
       id="inicio"
@@ -68,10 +70,8 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex items-center justify-center lg:justify-start gap-3 flex-wrap">
-            <a
-              href="https://mi.clientador.com/widget/booking/9BIrfq1qKd6NoCAObqzO"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={open}
               className="btn-primary gap-2.5 px-5 py-2.5 text-sm"
             >
               <span className="relative flex h-2 w-2">
@@ -79,7 +79,7 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
               </span>
               DEMO EN VIVO
-            </a>
+            </button>
             <a
               href="https://wa.me/56996832736"
               target="_blank"

@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { Calculator } from "lucide-react";
+import { useBookingModal } from "@/components/BookingModal";
 
 const MODELS = [
   {
@@ -44,6 +45,7 @@ const MODELS = [
 ];
 
 export default function CostCalculator() {
+  const { open } = useBookingModal();
   const [selectedModel, setSelectedModel] = useState(MODELS[0].id);
   const [conversationsPerDay, setConversationsPerDay] = useState(50);
   const MESSAGES_PER_CONV = 6;
@@ -179,14 +181,12 @@ export default function CostCalculator() {
                 </div>
               </div>
 
-              <a
-                href="https://mi.clientador.com/widget/booking/9BIrfq1qKd6NoCAObqzO"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={open}
                 className="btn-primary py-3.5 text-sm w-full"
               >
                 Activar mi agente IA →
-              </a>
+              </button>
             </div>
           </div>
         </div>

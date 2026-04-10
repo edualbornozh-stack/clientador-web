@@ -1,4 +1,9 @@
+"use client";
+
+import { useBookingModal } from "@/components/BookingModal";
+
 export default function FooterCTA() {
+  const { open } = useBookingModal();
   return (
     <section
       className="py-24 relative overflow-hidden"
@@ -22,14 +27,12 @@ export default function FooterCTA() {
           Únete a cientos de negocios que ya automatizan su atención al cliente con Clientador. Comienza hoy, sin tarjeta de crédito.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="https://mi.clientador.com/widget/booking/9BIrfq1qKd6NoCAObqzO"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={open}
             className="btn-primary px-8 py-4 text-sm font-bold"
           >
             Comenzar ahora
-          </a>
+          </button>
         </div>
         <p className="text-sm mt-6" style={{ color: "#475569" }}>
           Sin contratos · Soporte en español · Activo en 24h

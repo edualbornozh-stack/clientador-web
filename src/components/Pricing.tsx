@@ -1,4 +1,7 @@
+"use client";
+
 import { Check } from "lucide-react";
+import { useBookingModal } from "@/components/BookingModal";
 
 const PLANS = [
   {
@@ -71,6 +74,7 @@ const PLANS = [
 ];
 
 export default function Pricing() {
+  const { open } = useBookingModal();
   return (
     <section id="precios" className="py-20" style={{ background: "transparent" }}>
       <div className="max-w-6xl mx-auto px-4">
@@ -159,14 +163,12 @@ export default function Pricing() {
                     );
                   })}
                 </ul>
-                <a
-                  href="https://mi.clientador.com/widget/booking/9BIrfq1qKd6NoCAObqzO"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={open}
                   className="py-3.5 text-sm w-full btn-primary mt-auto"
                 >
                   {plan.cta}
-                </a>
+                </button>
               </div>
             </div>
           ))}

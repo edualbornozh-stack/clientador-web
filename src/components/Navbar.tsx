@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { RUBROS_LIST } from "@/lib/rubros-config";
+import { useBookingModal } from "@/components/BookingModal";
 
 const NAV_LINKS = [
   { label: "Inicio", href: "/" },
@@ -12,6 +13,7 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
+  const { open: openBooking } = useBookingModal();
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("#inicio");
   const [scrolled, setScrolled] = useState(false);
@@ -148,14 +150,12 @@ export default function Navbar() {
           >
             Iniciar sesión
           </a>
-          <a
-            href="https://mi.clientador.com/widget/booking/9BIrfq1qKd6NoCAObqzO"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={openBooking}
             className="btn-primary px-5 py-2 text-sm"
           >
             Demo en Vivo
-          </a>
+          </button>
         </div>
 
         {/* Mobile menu button */}
@@ -239,15 +239,13 @@ export default function Navbar() {
           >
             Iniciar sesión
           </a>
-          <a
-            href="https://mi.clientador.com/widget/booking/9BIrfq1qKd6NoCAObqzO"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={openBooking}
             className="text-sm font-semibold py-3 rounded-full text-center"
             style={{ background: "#ffffff", color: "#0f0a1e" }}
           >
             Demo en Vivo
-          </a>
+          </button>
         </div>
       )}
     </header>
