@@ -29,8 +29,8 @@ const FAQS = [
     a: "Los datos se almacenan con encriptación AES-256, en servidores con certificación SOC2. Cumplimos con GDPR y la Ley 19.628 de Protección de Datos de Chile. Nunca compartimos ni vendemos datos de terceros.",
   },
   {
-    q: "¿Puedo conectar varios números de WhatsApp?",
-    a: "Sí. Puedes conectar múltiples números de WhatsApp y otros canales en la misma cuenta. Todos convergen en una sola bandeja de entrada unificada para tu equipo.",
+    q: "¿Cuántos números de WhatsApp puedo integrar?",
+    a: "Puedes comenzar integrando un número de forma híbrida (co-existencia), lo que te permite seguir usando tu App de WhatsApp Business en el celular mientras Clientador automatiza las ventas en paralelo. ¡No pierdes el acceso a tus chats! Si tu negocio necesita varios números de WhatsApp, puedes hacerlo mediante API Oficial, permitiéndote centralizar tantos números como tu negocio requiera.",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function FAQ() {
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between px-6 py-5 text-left"
               >
-                <span className="font-semibold text-base pr-4" style={{ color: "#e2e8f0" }}>{faq.q}</span>
+                <h3 className="font-semibold text-base pr-4 m-0" style={{ color: "#e2e8f0" }}>{faq.q}</h3>
                 <span
                   className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center"
                   style={{ background: "rgba(124,58,237,0.2)" }}
