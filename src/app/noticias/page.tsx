@@ -3,8 +3,15 @@ import Link from "next/link";
 import DepthBackground from "@/components/DepthBackground";
 
 export const metadata: Metadata = {
-  title: "Noticias – Clientador",
-  description: "Tendencias e insights sobre inteligencia artificial para negocios y pymes.",
+  title: "Noticias IA para Negocios – Clientador | Guías y Tendencias",
+  description: "Guías prácticas, tendencias y estrategias sobre inteligencia artificial para pymes. Aprende cómo automatizar ventas y atención al cliente con IA.",
+  alternates: { canonical: "https://clientador.com/noticias" },
+  openGraph: {
+    title: "Noticias IA para Negocios – Clientador",
+    description: "Guías y tendencias sobre IA para automatizar tu pyme en Latinoamérica.",
+    url: "https://clientador.com/noticias",
+    images: [{ url: "/images/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function NoticiasPage() {

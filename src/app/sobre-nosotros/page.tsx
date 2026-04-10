@@ -3,9 +3,15 @@ import Link from "next/link";
 import DepthBackground from "@/components/DepthBackground";
 
 export const metadata: Metadata = {
-  title: "Sobre nosotros – Clientador",
-  description:
-    "Conoce al equipo detrás de Clientador, la plataforma de IA diseñada para democratizar el acceso a la inteligencia artificial para pymes en Latinoamérica.",
+  title: "Sobre Nosotros – Clientador | IA para Pymes en Latinoamérica",
+  description: "Somos un equipo de Santiago, Chile, con la misión de democratizar el acceso a la IA para las pymes de Latinoamérica. Conoce nuestra historia, misión y visión.",
+  alternates: { canonical: "https://clientador.com/sobre-nosotros" },
+  openGraph: {
+    title: "Sobre Nosotros – Clientador",
+    description: "Democratizando el acceso a la IA para pymes en Chile, México, Colombia y Argentina.",
+    url: "https://clientador.com/sobre-nosotros",
+    images: [{ url: "/images/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function SobreNosotrosPage() {

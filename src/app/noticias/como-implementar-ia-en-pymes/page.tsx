@@ -3,9 +3,16 @@ import Link from "next/link";
 import DepthBackground from "@/components/DepthBackground";
 
 export const metadata: Metadata = {
-  title: "Cómo implementar IA en Pymes – Clientador",
-  description:
-    "Guía práctica para automatizar ventas y atención al cliente en tu pyme usando inteligencia artificial.",
+  title: "Cómo Implementar IA en Pymes: Guía Completa 2025 – Clientador",
+  description: "Guía paso a paso para implementar inteligencia artificial en tu pyme. Automatiza ventas, atención al cliente y calificación de leads sin conocimientos técnicos.",
+  alternates: { canonical: "https://clientador.com/noticias/como-implementar-ia-en-pymes" },
+  openGraph: {
+    title: "Cómo Implementar IA en Pymes: Guía Completa 2025",
+    description: "Aprende a automatizar ventas y atención al cliente con IA en tu negocio. Guía práctica para pymes latinoamericanas.",
+    url: "https://clientador.com/noticias/como-implementar-ia-en-pymes",
+    type: "article",
+    images: [{ url: "/images/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function ArticleComoImplementarIAPage() {

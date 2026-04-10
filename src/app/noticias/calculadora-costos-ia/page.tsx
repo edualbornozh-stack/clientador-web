@@ -4,9 +4,16 @@ import DepthBackground from "@/components/DepthBackground";
 import CostCalculator from "@/components/CostCalculator";
 
 export const metadata: Metadata = {
-  title: "¿Cuánto cuesta un agente de IA conversacional? – Clientador",
-  description:
-    "Calcula en tiempo real cuánto cuesta implementar un agente de IA conversacional para tu negocio. Comparativa de modelos GPT-4.1, GPT-5 y más.",
+  title: "Calculadora Costos IA: ¿Cuánto Cuesta un Agente Conversacional? – Clientador",
+  description: "Calcula en tiempo real cuánto cuesta implementar un agente de IA conversacional para tu negocio. Compara modelos GPT-4.1 Mini, GPT-5 y más. Solo pagas por lo que usas.",
+  alternates: { canonical: "https://clientador.com/noticias/calculadora-costos-ia" },
+  openGraph: {
+    title: "¿Cuánto Cuesta un Agente de IA Conversacional?",
+    description: "Calculadora interactiva de costos de IA para pymes. Compara modelos y estima tu inversión mensual real.",
+    url: "https://clientador.com/noticias/calculadora-costos-ia",
+    type: "article",
+    images: [{ url: "/images/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function CalculadoraCostosPage() {
