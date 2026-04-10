@@ -13,7 +13,6 @@ import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import FadeIn from "@/components/FadeIn";
-import DepthBackground from "@/components/DepthBackground";
 
 /* ─── Static params ──────────────────────────────────────── */
 export function generateStaticParams() {
@@ -69,27 +68,24 @@ export default async function RubroPage({
   if (!rubro) notFound();
 
   return (
-    <div style={{ position: "relative", background: "#020617" }}>
-      <DepthBackground />
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <main>
-          <RubroHero
-            badge={rubro.badge}
-            title={rubro.heroTitle}
-            subtitle={rubro.heroSubtitle}
-          />
-          <FadeIn><Features /></FadeIn>
-          <FadeIn delay={0.05}><FeatureDeepDive /></FadeIn>
-          <FadeIn delay={0.05}><Channels /></FadeIn>
-          <FadeIn delay={0.05}><Process /></FadeIn>
-          <FadeIn delay={0.05}><Testimonials /></FadeIn>
-          <FadeIn delay={0.05}><Pricing /></FadeIn>
-          <FadeIn delay={0.05}><FAQ /></FadeIn>
-          <FadeIn delay={0.05}><FooterCTA /></FadeIn>
-        </main>
-        <Footer />
-        <WhatsAppWidget />
-      </div>
-    </div>
+    <>
+      <main>
+        <RubroHero
+          badge={rubro.badge}
+          title={rubro.heroTitle}
+          subtitle={rubro.heroSubtitle}
+        />
+        <FadeIn><Features /></FadeIn>
+        <FadeIn delay={0.05}><FeatureDeepDive /></FadeIn>
+        <FadeIn delay={0.05}><Channels /></FadeIn>
+        <FadeIn delay={0.05}><Process /></FadeIn>
+        <FadeIn delay={0.05}><Testimonials /></FadeIn>
+        <FadeIn delay={0.05}><Pricing /></FadeIn>
+        <FadeIn delay={0.05}><FAQ /></FadeIn>
+        <FadeIn delay={0.05}><FooterCTA /></FadeIn>
+      </main>
+      <Footer />
+      <WhatsAppWidget />
+    </>
   );
 }
