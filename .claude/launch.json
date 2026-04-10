@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Next.js Dev Server",
+      "runtimeExecutable": "/bin/bash",
+      "runtimeArgs": ["-c", "PATH=/usr/local/bin:$PATH NODE=/usr/local/bin/node /usr/local/bin/node /Users/edu/Documents/Proyectos-web/clientador/node_modules/.bin/next dev"],
+      "port": 3000
+    }
+  ]
+}
