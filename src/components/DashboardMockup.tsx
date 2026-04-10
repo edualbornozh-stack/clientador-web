@@ -241,7 +241,7 @@ export default function DashboardMockup() {
             className="w-9 h-9 rounded-xl flex items-center justify-center overflow-hidden mb-1"
             style={{ background: "linear-gradient(135deg,#7c3aed,#5b0fdf)", boxShadow: "0 4px 12px rgba(124,58,237,0.35)" }}
           >
-            <img src="/favicon.ico" alt="logo" width={22} height={22} style={{ objectFit: "contain" }} />
+            <img src="/images/Logo.svg" alt="logo" width={22} height={22} style={{ objectFit: "contain" }} />
           </motion.div>
 
           {SIDEBAR_CHANNELS.map(({ Icon, bg, badge, active }, i) => (

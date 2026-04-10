@@ -100,7 +100,7 @@ function ChatDemo() {
         <div className="flex items-center gap-3">
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=96&q=80"
+              src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=48&q=80"
               alt="User"
               className="w-12 h-12 rounded-full border-2 border-white/20 object-cover"
             />
@@ -131,7 +131,7 @@ function ChatDemo() {
                   src={
                     msg.role === "ai"
                       ? "/images/Logo.svg"
-                      : "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=96&q=80"
+                      : "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=48&q=80"
                   }
                   alt={msg.role}
                   className="w-6 h-6 rounded-full object-cover flex-shrink-0 border border-white/10"
