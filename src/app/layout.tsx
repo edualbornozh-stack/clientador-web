@@ -18,7 +18,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const GTM_ID = process.env.GTM_ID ?? "";
+const GTM_ID = "GTM-W37VLX7P";
 
 export const metadata: Metadata = {
   title: "Clientador – IA para convertir clientes más rápido | CRM + WhatsApp IA",
@@ -77,6 +77,9 @@ const jsonLdOrganization = {
   },
   sameAs: [
     "https://www.instagram.com/clientador",
+    "https://www.facebook.com/clientador",
+    "https://www.tiktok.com/@clientador",
+    "https://www.youtube.com/@clientador",
     "https://www.linkedin.com/company/clientador",
   ],
 };
@@ -197,7 +200,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      {GTM_ID && <GoogleTagManager gtmId={GTM_ID} />}
+      <GoogleTagManager gtmId={GTM_ID} />
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSoftware) }} />

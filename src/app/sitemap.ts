@@ -1,8 +1,16 @@
 import type { MetadataRoute } from "next";
+import { RUBROS_LIST } from "@/lib/rubros-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://clientador.com";
   const now = new Date();
+
+  const rubroUrls: MetadataRoute.Sitemap = RUBROS_LIST.map((r) => ({
+    url: `${base}/rubros/${r.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
 
   return [
     {
@@ -11,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1.0,
     },
+    ...rubroUrls,
     {
       url: `${base}/sobre-nosotros`,
       lastModified: now,
