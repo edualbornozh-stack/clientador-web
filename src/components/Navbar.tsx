@@ -56,7 +56,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <img src="/images/Logo.svg" alt="Clientador" className="h-8 w-auto" />
+          <img src="/images/Logo.svg" alt="Clientador" width={140} height={32} className="h-8 w-auto" />
         </Link>
 
         {/* Desktop Nav — pill container */}

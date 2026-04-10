@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://clientador.com"),
   alternates: { canonical: "https://clientador.com" },
   icons: {
-    icon: '/favicon.ico',
+    icon: '/images/Logo.svg',
     apple: '/images/og-image.png',
   },
   openGraph: {

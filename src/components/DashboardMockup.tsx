@@ -84,12 +84,12 @@ type Conv = {
 
 // Latin-looking real photo avatars via i.pravatar.cc
 const CONVERSATIONS: Conv[] = [
-  { avatar: "https://i.pravatar.cc/80?img=12", name: "Matías",    time: "5:36 PM", typing: true,  unread: 2, channel: "wa"    },
-  { avatar: "https://i.pravatar.cc/80?img=47", name: "Clara",     time: "3:28 PM", typing: true,  unread: 3, channel: "ig"    },
-  { avatar: "https://i.pravatar.cc/80?img=25", name: "Sofía",     time: "3:08 PM", preview: "¿Tienen disponibilidad para mañana?",  unread: 3, channel: "fb"    },
-  { avatar: "https://i.pravatar.cc/80?img=52", name: "Camilo",    time: "2:53 PM", preview: "¡Perfecto! Gracias por tu tiempo...",  unread: 3, channel: "wa"    },
-  { avatar: "https://i.pravatar.cc/80?img=14", name: "Andrés",    time: "2:37 PM", preview: "¿Hay opción de compra por volumen?",   unread: 1, channel: "gmail" },
-  { avatar: "https://i.pravatar.cc/80?img=35", name: "Valentina", time: "9:21 AM", typing: true,  unread: 1, channel: "wa"    },
+  { avatar: "https://i.pravatar.cc/44?img=12", name: "Matías",    time: "5:36 PM", typing: true,  unread: 2, channel: "wa"    },
+  { avatar: "https://i.pravatar.cc/44?img=47", name: "Clara",     time: "3:28 PM", typing: true,  unread: 3, channel: "ig"    },
+  { avatar: "https://i.pravatar.cc/44?img=25", name: "Sofía",     time: "3:08 PM", preview: "¿Tienen disponibilidad para mañana?",  unread: 3, channel: "fb"    },
+  { avatar: "https://i.pravatar.cc/44?img=52", name: "Camilo",    time: "2:53 PM", preview: "¡Perfecto! Gracias por tu tiempo...",  unread: 3, channel: "wa"    },
+  { avatar: "https://i.pravatar.cc/44?img=14", name: "Andrés",    time: "2:37 PM", preview: "¿Hay opción de compra por volumen?",   unread: 1, channel: "gmail" },
+  { avatar: "https://i.pravatar.cc/44?img=35", name: "Valentina", time: "9:21 AM", typing: true,  unread: 1, channel: "wa"    },
 ];
 
 const CHANNEL_NET: Record<string, React.ReactNode> = {

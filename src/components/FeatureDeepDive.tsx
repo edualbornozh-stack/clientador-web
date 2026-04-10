@@ -100,7 +100,7 @@ function ChatDemo() {
         <div className="flex items-center gap-3">
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80"
+              src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=96&q=80"
               alt="User"
               className="w-12 h-12 rounded-full border-2 border-white/20 object-cover"
             />
@@ -131,7 +131,7 @@ function ChatDemo() {
                   src={
                     msg.role === "ai"
                       ? "/images/Logo.svg"
-                      : "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80"
+                      : "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=96&q=80"
                   }
                   alt={msg.role}
                   className="w-6 h-6 rounded-full object-cover flex-shrink-0 border border-white/10"
@@ -250,7 +250,7 @@ const SECTIONS = [
         <div className="flex items-center gap-4 px-5 py-4 bg-gradient-to-r from-[#4f35d2] to-[#7b5ef8]">
           <div className="flex-shrink-0 w-11 h-11 rounded-full overflow-hidden border-2 border-white/60">
             <img
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80"
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=88&q=80"
               alt="Agente"
               className="w-full h-full object-cover"
             />
@@ -265,7 +265,7 @@ const SECTIONS = [
             <span className="absolute inset-[12px] rounded-full border border-[#7b5ef8]/15 animate-pulse" />
             <div className="relative w-full h-full rounded-full overflow-hidden bg-[#f3f0ff]">
               <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80"
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80"
                 alt="Agente IA"
                 className="w-full h-full object-cover"
               />
@@ -288,13 +288,13 @@ const SECTIONS = [
           <p className="text-xs italic text-slate-400 mt-6">IA hablando...</p>
 
           <div className="mt-6 flex items-center gap-4">
-            <button className="rounded-full bg-slate-100 text-slate-700 w-12 h-12 flex items-center justify-center text-xl shadow-sm transition hover:bg-slate-200">
+            <button aria-label="Activar micrófono" className="rounded-full bg-slate-100 text-slate-700 w-12 h-12 flex items-center justify-center text-xl shadow-sm transition hover:bg-slate-200">
               🎤
             </button>
-            <button className="rounded-full bg-[#ef4444] text-white w-14 h-14 flex items-center justify-center text-2xl shadow-lg transition hover:bg-[#dc2626]">
+            <button aria-label="Colgar llamada" className="rounded-full bg-[#ef4444] text-white w-14 h-14 flex items-center justify-center text-2xl shadow-lg transition hover:bg-[#dc2626]">
               📵
             </button>
-            <button className="rounded-full bg-slate-100 text-slate-700 w-12 h-12 flex items-center justify-center text-xl shadow-sm transition hover:bg-slate-200">
+            <button aria-label="Activar altavoz" className="rounded-full bg-slate-100 text-slate-700 w-12 h-12 flex items-center justify-center text-xl shadow-sm transition hover:bg-slate-200">
               🔊
             </button>
           </div>
@@ -338,10 +338,10 @@ const SECTIONS = [
             <span className="inline-block w-0.5 h-4 align-middle bg-[#7c3aed] ml-1 animate-pulse" />
           </div>
           <div className="mt-4 flex items-center justify-end gap-3">
-            <button className="inline-flex items-center justify-center rounded-full p-2 text-slate-400 hover:text-[#7c3aed] transition">
+            <button aria-label="Usar micrófono" className="inline-flex items-center justify-center rounded-full p-2 text-slate-400 hover:text-[#7c3aed] transition">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 19v3M9 22h6"/></svg>
             </button>
-            <button className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#7c3aed] to-[#a855f7] text-white transition hover:scale-[1.04]">
+            <button aria-label="Enviar mensaje" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#7c3aed] to-[#a855f7] text-white transition hover:scale-[1.04]">
               <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
             </button>
           </div>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Golos+Text:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap");
+/* Fonts are loaded via next/font/google — no external @import needed */
 @import "tailwindcss";
 
 :root {
@@ -78,9 +78,10 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* gradient-flow: uses background-position shorthand (GPU-compositable) */
 @keyframes gradient-flow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
@@ -88,18 +89,20 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, #7c3aed, #a78bfa, #818cf8, #38bdf8, #c084fc, #7c3aed);
   background-size: 300% 300%;
   animation: gradient-flow 5s ease infinite;
+  will-change: background-position;
 }
 
 .text-gradient-animated {
   display: inline-block;
   background-image: linear-gradient(90deg, #20c997, #38bdf8, #a855f7, #34d399, #7c3aed, #22c55e);
-  background-size: 200% 200%;
+  background-size: 200% auto;
   background-repeat: no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gradient-flow 4s linear infinite;
   color: transparent;
+  will-change: background-position;
 }
 
 .animate-pulse-bar { animation: pulse-bar 1.2s ease-in-out infinite; }
@@ -115,6 +118,7 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(135deg, #7c3aed, #a78bfa, #818cf8, #38bdf8, #c084fc, #7c3aed);
     background-size: 300% 300%;
     animation: gradient-flow 5s ease infinite;
+    will-change: background-position;
     color: #ffffff;
     font-weight: 600;
     border-radius: 9999px;
@@ -147,6 +151,7 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(135deg, #7c3aed, #a78bfa, #818cf8, #38bdf8, #c084fc, #7c3aed);
     background-size: 300% 300%;
     animation: gradient-flow 5s ease infinite;
+    will-change: background-position;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;

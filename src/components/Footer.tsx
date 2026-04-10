@@ -130,7 +130,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <span>© {new Date().getFullYear()} Clientador. Todos los derechos reservados.</span>
           <span>Hecho con ❤️ en Chile 🇨🇱</span>
         </div>

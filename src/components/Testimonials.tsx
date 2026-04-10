@@ -93,6 +93,7 @@ export default function Testimonials() {
         <div className="flex items-center justify-center gap-4 mt-8">
           <button
             onClick={() => setIdx((i) => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
+            aria-label="Testimonio anterior"
             className="w-10 h-10 rounded-full flex items-center justify-center transition-colors"
             style={{ border: "1px solid rgba(255,255,255,0.12)", color: "#a78bfa" }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(124,58,237,0.15)"; }}
@@ -100,10 +101,13 @@ export default function Testimonials() {
           >
             <ChevronLeft size={18} />
           </button>
-          <div className="flex gap-2">
-            {TESTIMONIALS.map((_, i) => (
+          <div className="flex gap-2" role="tablist" aria-label="Testimonios">
+            {TESTIMONIALS.map((t, i) => (
               <button
                 key={i}
+                role="tab"
+                aria-selected={i === idx}
+                aria-label={`Ver testimonio de ${t.name}`}
                 onClick={() => setIdx(i)}
                 className="h-2 rounded-full transition-all duration-300"
                 style={{
@@ -115,6 +119,7 @@ export default function Testimonials() {
           </div>
           <button
             onClick={() => setIdx((i) => (i + 1) % TESTIMONIALS.length)}
+            aria-label="Testimonio siguiente"
             className="w-10 h-10 rounded-full flex items-center justify-center transition-colors"
             style={{ border: "1px solid rgba(255,255,255,0.12)", color: "#a78bfa" }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(124,58,237,0.15)"; }}

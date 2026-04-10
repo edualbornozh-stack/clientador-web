@@ -42,7 +42,7 @@ export default function Marquee() {
   return (
     <div className="pt-2 pb-6 overflow-hidden">
       <div className="mb-4 text-center">
-        <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "rgba(148,163,184,0.4)" }}>
+        <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "rgba(148,163,184,0.65)" }}>
           Usado por negocios de todo rubro
         </p>
       </div>

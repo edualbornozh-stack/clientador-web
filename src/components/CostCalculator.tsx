@@ -119,7 +119,11 @@ export default function CostCalculator() {
                   <span>Conversaciones por día</span>
                   <span className="font-mono" style={{ color: "#a78bfa" }}>{conversationsPerDay}</span>
                 </label>
+                <label htmlFor="conversations-slider" className="sr-only">
+                  Conversaciones por día: {conversationsPerDay}
+                </label>
                 <input
+                  id="conversations-slider"
                   type="range"
                   min={5}
                   max={500}
