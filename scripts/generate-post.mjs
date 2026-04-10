@@ -68,21 +68,23 @@ async function main() {
   console.log(`\n🧠 Generando idea de tema (${existingSlugs.length} posts publicados)...`);
 
   // ── Paso 1: Claude elige el tema ──────────────────────────
-  const topicPrompt = `Eres el estratega de contenido de Clientador, una plataforma de IA para pymes latinoamericanas (WhatsApp Business API, CRM inteligente, agenda automática, chatbots multicanal).
+  const topicPrompt = `Eres el estratega de contenido de Clientador, una plataforma de IA conversacional para pymes latinoamericanas (WhatsApp Business API, CRM inteligente, agenda automática, agentes de IA multicanal).
 
-Ya existen estos artículos publicados (NO repitas estos temas):
+Ya existen estos artículos publicados (NO repitas ni estos temas ni estos rubros):
 ${existingTitles.map((t, i) => `${i + 1}. ${t}`).join("\n")}
 
-Genera UNA nueva idea de artículo de blog, distinta a las anteriores, que:
-- Sea útil para dueños de pymes en Chile, México, Colombia, Argentina o Perú
-- Esté orientada a un rubro específico O a una funcionalidad de IA para negocios
-- Tenga alto potencial SEO en búsquedas en español latinoamericano
-- Sirva para atraer clientes a Clientador
+Genera UNA nueva idea de artículo de blog completamente distinta a las anteriores. Reglas estrictas:
+- NUNCA uses la palabra "chatbot" — usa "agente de IA", "Chat IA", "asistente IA", "IA conversacional"
+- NO repitas rubros ya cubiertos (revisa la lista de arriba)
+- Varía entre: estrategia de ventas, casos de uso por rubro, funcionalidades IA, comparativas, guías prácticas, tendencias del sector
+- Rubros disponibles (rotar): veterinarias, academias, agencias de viaje, tiendas online, gimnasios, concesionarios, centros de estética, salud, educación, servicios profesionales (abogados, contadores), hoteles, agencias de marketing
+- Oriéntalo a dueños de pymes en Chile, México, Colombia, Argentina o Perú
+- Alto potencial SEO en búsquedas en español latinoamericano
 
 Responde ÚNICAMENTE con JSON válido (sin markdown):
 {
   "slug": "slug-en-kebab-case-unico",
-  "title": "Título del artículo atractivo y con keyword principal",
+  "title": "Título atractivo con keyword principal (sin la palabra chatbot)",
   "category": "Categoría del artículo",
   "keywords": ["keyword 1", "keyword 2", "keyword 3", "keyword 4"],
   "geo": ["País o ciudad 1", "País o ciudad 2", "País o ciudad 3"]
@@ -109,7 +111,7 @@ Responde ÚNICAMENTE con JSON válido (sin markdown):
   console.log(`📝 Generando artículo completo...`);
 
   // ── Paso 2: Claude escribe el artículo completo ───────────
-  const articlePrompt = `Eres el redactor de contenido de Clientador, una plataforma de IA para pymes latinoamericanas (WhatsApp Business API, CRM inteligente, agenda automática, chatbots).
+  const articlePrompt = `Eres el redactor de contenido de Clientador, una plataforma de IA conversacional para pymes latinoamericanas (WhatsApp Business API, CRM inteligente, agenda automática, agentes de IA multicanal).
 
 Genera un artículo de blog completo en español, persuasivo y optimizado para SEO/GEO:
 
@@ -123,8 +125,10 @@ El artículo debe:
 2. Mencionar naturalmente los países/ciudades target para SEO local
 3. Incluir datos y estadísticas verosímiles
 4. Tono profesional pero cercano, en español latinoamericano
-5. Duración: 5-7 minutos de lectura (artículo conciso, no extiendas innecesariamente)
-6. Mencionar Clientador de forma natural como la solución recomendada al final
+5. Duración: 5-7 minutos de lectura (conciso, no extiendas innecesariamente)
+6. Mencionar Clientador de forma natural como solución recomendada, especialmente hacia el final
+7. NUNCA usar la palabra "chatbot" — reemplázala siempre por: "agente de IA", "Chat IA", "asistente IA", "IA conversacional" según el contexto
+8. Hablar de "automatización inteligente", "IA conversacional", "agentes de IA" en lugar de bots
 
 Responde ÚNICAMENTE con JSON válido (sin markdown, sin texto extra):
 
