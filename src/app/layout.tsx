@@ -21,7 +21,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 const GTM_ID = "GTM-W37VLX7P";
 
 export const metadata: Metadata = {
-  title: "Clientador: La IA que atiende y vende por ti",
+  title: "La mejor IA para atender a clientes | Clientador",
   description:
     "Clientador: plataforma de IA que atiende, califica y convierte clientes 24/7 por WhatsApp, Instagram, Facebook y más. CRM inteligente, agenda automática y campañas masivas. Desde USD 79/mes.",
   keywords:

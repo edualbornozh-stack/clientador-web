@@ -36,7 +36,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: rubro.metaTitle,
+    title: `La mejor IA para ${rubro.label} – Atiende y Vende Automáticamente | Clientador`,
     description: rubro.metaDescription,
     alternates: {
       canonical: `https://clientador.com/rubros/${slug}`,
