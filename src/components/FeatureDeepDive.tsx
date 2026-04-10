@@ -130,7 +130,7 @@ function ChatDemo() {
                 <img
                   src={
                     msg.role === "ai"
-                      ? "https://clientador.com/wp-content/uploads/2026/04/cropped-icon.png"
+                      ? "/images/Logo.svg"
                       : "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80"
                   }
                   alt={msg.role}
