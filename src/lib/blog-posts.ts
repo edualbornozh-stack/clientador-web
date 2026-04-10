@@ -1,3 +1,5 @@
+import generatedPosts from "./generated-posts.json";
+
 export interface BlogSection {
   type: "text" | "cards" | "steps" | "bullets";
   title: string;
@@ -20,7 +22,7 @@ export interface BlogPost {
   ctaDescription: string;
 }
 
-export const BLOG_POSTS: BlogPost[] = [
+const MANUAL_POSTS: BlogPost[] = [
   {
     slug: "como-implementar-ia-en-pymes",
     title: "Cómo implementar IA en Pymes: Guía para automatizar ventas y atención",
@@ -179,4 +181,11 @@ export const BLOG_POSTS: BlogPost[] = [
     ctaDescription:
       "En la demo te mostramos cuánto puedes ahorrar y cuántos leads adicionales puedes capturar con Clientador. Sin compromiso.",
   },
+];
+
+// Los posts generados automáticamente se leen desde generated-posts.json
+// El script scripts/generate-post.mjs escribe en ese archivo — nunca en este.
+export const BLOG_POSTS: BlogPost[] = [
+  ...MANUAL_POSTS,
+  ...(generatedPosts as BlogPost[]),
 ];

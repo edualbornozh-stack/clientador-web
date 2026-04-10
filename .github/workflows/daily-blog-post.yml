@@ -35,7 +35,7 @@ jobs:
         run: |
           git config user.name "Clientador Bot"
           git config user.email "bot@clientador.com"
-          git add src/lib/blog-posts.ts
+          git add src/lib/generated-posts.json
           git diff --cached --quiet && echo "Sin cambios" && exit 0
           git commit -m "feat(blog): post automático $(date +'%Y-%m-%d')"
           git push

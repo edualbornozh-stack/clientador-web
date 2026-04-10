@@ -13,14 +13,27 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const BLOG_POSTS_FILE = path.join(ROOT, "src/lib/blog-posts.ts");
+const GENERATED_FILE = path.join(ROOT, "src/lib/generated-posts.json");
 
 function getExistingSlugsAndTitles() {
-  const content = fs.readFileSync(BLOG_POSTS_FILE, "utf-8");
-  const slugs = (content.match(/slug:\s*["']([^"']+)["']/g) || [])
-    .map((m) => m.match(/["']([^"']+)["']/)[1]);
-  const titles = (content.match(/title:\s*["']([^"']+)["']/g) || [])
-    .map((m) => m.match(/["']([^"']+)["']/)[1]);
-  return { slugs, titles };
+  // Read from the TS file (manual posts) + the JSON file (generated posts)
+  const ts = fs.readFileSync(BLOG_POSTS_FILE, "utf-8");
+  const tsSlugs = (ts.match(/(?:"slug"|slug):\s*["']([^"']+)["']/g) || [])
+    .map((m) => m.match(/:\s*["']([^"']+)["']/)[1]);
+  const tsTitles = (ts.match(/(?:"title"|title):\s*["']([^"']+)["']/g) || [])
+    .map((m) => m.match(/:\s*["']([^"']+)["']/)[1]);
+
+  let jsonSlugs = [], jsonTitles = [];
+  if (fs.existsSync(GENERATED_FILE)) {
+    const generated = JSON.parse(fs.readFileSync(GENERATED_FILE, "utf-8"));
+    jsonSlugs = generated.map((p) => p.slug);
+    jsonTitles = generated.map((p) => p.title);
+  }
+
+  return {
+    slugs: [...new Set([...tsSlugs, ...jsonSlugs])],
+    titles: [...new Set([...tsTitles, ...jsonTitles])],
+  };
 }
 
 function getCurrentMonth() {
@@ -30,10 +43,16 @@ function getCurrentMonth() {
 }
 
 function appendPostToFile(post) {
-  const content = fs.readFileSync(BLOG_POSTS_FILE, "utf-8");
-  const postTs = `  ${JSON.stringify(post, null, 2).replace(/^/gm, "  ").trimStart()},`;
-  const updated = content.replace(/^];$/m, `${postTs}\n];`);
-  fs.writeFileSync(BLOG_POSTS_FILE, updated, "utf-8");
+  // Always write to the JSON file — never touches blog-posts.ts
+  let existing = [];
+  if (fs.existsSync(GENERATED_FILE)) {
+    existing = JSON.parse(fs.readFileSync(GENERATED_FILE, "utf-8"));
+  }
+  // Avoid duplicates
+  if (!existing.find((p) => p.slug === post.slug)) {
+    existing.push(post);
+  }
+  fs.writeFileSync(GENERATED_FILE, JSON.stringify(existing, null, 2), "utf-8");
 }
 
 async function main() {
@@ -104,7 +123,7 @@ El artículo debe:
 2. Mencionar naturalmente los países/ciudades target para SEO local
 3. Incluir datos y estadísticas verosímiles
 4. Tono profesional pero cercano, en español latinoamericano
-5. Duración: 8-12 minutos de lectura
+5. Duración: 5-7 minutos de lectura (artículo conciso, no extiendas innecesariamente)
 6. Mencionar Clientador de forma natural como la solución recomendada al final
 
 Responde ÚNICAMENTE con JSON válido (sin markdown, sin texto extra):
@@ -148,7 +167,7 @@ Usa 4-6 secciones variando los tipos. Al menos una "cards" y una "text".`;
 
   const articleMsg = await client.messages.create({
     model: "claude-opus-4-6",
-    max_tokens: 4096,
+    max_tokens: 8000,
     messages: [{ role: "user", content: articlePrompt }],
   });
 
