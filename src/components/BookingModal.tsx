@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, Sparkles } from "lucide-react";
 
 /* ─── Context ─────────────────────────────────────────────── */
 const BookingModalContext = createContext<{
@@ -158,22 +158,43 @@ export function BookingModalProvider({ children }: { children: React.ReactNode }
                       key="preloader"
                       initial={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
                       style={{
                         position: "absolute", inset: 0, background: "#100b13",
                         display: "flex", flexDirection: "column",
                         alignItems: "center", justifyContent: "center",
-                        gap: "16px", zIndex: 10, minHeight: "500px",
+                        gap: "24px", zIndex: 10,
                       }}
                     >
-                      <div style={{
-                        width: "40px", height: "40px", borderRadius: "50%",
-                        border: "3px solid rgba(124,58,237,0.2)",
-                        borderTopColor: "#a78bfa",
-                        animation: "booking-spin 0.8s linear infinite",
-                      }} />
-                      <p style={{ color: "#64748b", fontSize: "13px" }}>Cargando calendario…</p>
-                      <style>{`@keyframes booking-spin { to { transform: rotate(360deg); } }`}</style>
+                      {/* Sparkles estático con respiro suave */}
+                      <motion.div
+                        animate={{ opacity: [0.6, 1, 0.6] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        <Sparkles size={32} style={{
+                          background: "linear-gradient(135deg, #a78bfa, #38bdf8)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                          backgroundClip: "text",
+                        }} />
+                      </motion.div>
+
+                      {/* Texto + 3 puntitos púrpura rebotando */}
+                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                        <p style={{ color: "#475569", fontSize: "13px", letterSpacing: "0.02em" }}>
+                          Preparando tu demo con la IA
+                        </p>
+                        <div style={{ display: "flex", gap: "4px", alignItems: "center" }}>
+                          {[0, 0.18, 0.36].map((delay, i) => (
+                            <motion.span
+                              key={i}
+                              style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#a78bfa", display: "block" }}
+                              animate={{ y: [0, -5, 0] }}
+                              transition={{ duration: 0.7, repeat: Infinity, delay, ease: "easeInOut" }}
+                            />
+                          ))}
+                        </div>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>

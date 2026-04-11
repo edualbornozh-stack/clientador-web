@@ -8,6 +8,7 @@ import {
   BarChart3,
   Mail,
 } from "lucide-react";
+import { useBookingModal } from "@/components/BookingModal";
 
 const FEATURES = [
   {
@@ -61,6 +62,7 @@ const FEATURES = [
 ];
 
 export default function Features() {
+  const { open } = useBookingModal();
   return (
     <section id="funcionalidades" className="py-24" style={{ background: "transparent" }}>
       <div className="max-w-6xl mx-auto px-4">
@@ -80,12 +82,14 @@ export default function Features() {
           {FEATURES.map((f) => {
             const Icon = f.icon;
             return (
-              <div
+              <button
                 key={f.title}
-                className="group p-6 rounded-2xl transition-all duration-300 hover:scale-[1.02]"
+                onClick={open}
+                className="group p-6 rounded-2xl transition-all duration-300 hover:scale-[1.02] text-left w-full relative overflow-hidden"
                 style={{
                   background: "rgba(255,255,255,0.03)",
                   border: `1px solid rgba(255,255,255,0.08)`,
+                  cursor: "pointer",
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor = f.border;
@@ -104,7 +108,11 @@ export default function Features() {
                 </div>
                 <h3 className="font-semibold text-base mb-2" style={{ color: "#e2e8f0" }}>{f.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "#64748b" }}>{f.desc}</p>
-              </div>
+                {/* Hint hover */}
+                <span className="absolute bottom-4 right-4 text-[10px] font-semibold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: f.color }}>
+                  Ver demo →
+                </span>
+              </button>
             );
           })}
         </div>

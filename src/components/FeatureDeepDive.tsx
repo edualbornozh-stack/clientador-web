@@ -2,6 +2,7 @@
 
 import { Bot, PhoneCall, GitBranch, Send, Smile, MessageCircle } from "lucide-react";
 import { useState, useEffect, type ReactNode } from "react";
+import { useBookingModal } from "@/components/BookingModal";
 
 /* ─── Chat Demo Component ──────────────────────────────────────────── */
 function ChatDemo() {
@@ -366,6 +367,7 @@ const SECTIONS = [
 ];
 
 export default function FeatureDeepDive() {
+  const { open } = useBookingModal();
   return (
     <section className="py-20" style={{ background: "transparent" }}>
       <div className="max-w-6xl mx-auto px-4 space-y-24">
@@ -395,7 +397,7 @@ export default function FeatureDeepDive() {
                   {s.title}
                 </h2>
                 <p className="text-base leading-relaxed mb-6" style={{ color: "#64748b" }}>{s.desc}</p>
-                <ul className="space-y-2.5">
+                <ul className="space-y-2.5 mb-8">
                   {s.points.map((pt) => (
                     <li key={pt} className="flex items-center gap-2.5 text-sm" style={{ color: "#94a3b8" }}>
                       <span className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${s.color}20`, color: s.color }}>
@@ -405,8 +407,46 @@ export default function FeatureDeepDive() {
                     </li>
                   ))}
                 </ul>
+                <button
+                  onClick={open}
+                  className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200 hover:scale-[1.03]"
+                  style={{
+                    background: `linear-gradient(135deg, ${s.color}22, ${s.color}11)`,
+                    border: `1px solid ${s.color}44`,
+                    color: s.color,
+                  }}
+                >
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: s.color }} />
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5" style={{ background: s.color }} />
+                  </span>
+                  Ver en mi negocio →
+                </button>
               </div>
-              <div className={s.side === "left" ? "md:order-1" : ""}>{s.visual}</div>
+
+              {/* Widget clickeable → abre modal */}
+              <div
+                className={`relative group cursor-pointer ${s.side === "left" ? "md:order-1" : ""}`}
+                onClick={open}
+                role="button"
+                tabIndex={0}
+                aria-label={`Ver demo de ${s.badge}`}
+                onKeyDown={(e) => e.key === "Enter" && open()}
+              >
+                {s.visual}
+                {/* Overlay hover */}
+                <div className="absolute inset-0 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-250 pointer-events-none"
+                  style={{ background: "rgba(2,6,23,0.55)", backdropFilter: "blur(2px)" }}>
+                  <div className="flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm text-white"
+                    style={{ background: `linear-gradient(135deg, ${s.color}, ${s.color}bb)`, boxShadow: `0 4px 20px ${s.color}55` }}>
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                    </span>
+                    Agenda tu demo
+                  </div>
+                </div>
+              </div>
             </div>
           );
         })}
