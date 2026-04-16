@@ -4,8 +4,9 @@
     {
       "name": "Next.js Dev Server",
       "runtimeExecutable": "/bin/bash",
-      "runtimeArgs": ["--norc", "--noprofile", "-c", "cd /Users/edu/Documents/Proyectos-web/clientador && /usr/local/bin/node node_modules/next/dist/bin/next dev -p 3001"],
-      "port": 3001
+      "runtimeArgs": ["-c", "PATH=/usr/local/bin:$PATH NODE=/usr/local/bin/node /usr/local/bin/node /Users/edu/Documents/Proyectos-web/clientador/node_modules/.bin/next dev -p 3001 2>&1"],
+      "port": 3001,
+      "autoPort": false
     }
   ]
 }
