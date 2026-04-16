@@ -63,7 +63,7 @@ export default function CostCalculator() {
   }, [selectedModel, conversationsPerDay, model]);
 
   return (
-    <section className="py-20" style={{ background: "transparent" }}>
+    <section id="calculadora" className="py-20" style={{ background: "transparent" }}>
       <div className="max-w-4xl mx-auto px-4">
         <div className="text-center mb-12">
           <span className="text-xs font-mono font-medium uppercase tracking-widest" style={{ color: "#a78bfa" }}>

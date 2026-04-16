@@ -9,7 +9,6 @@ import { useBookingModal } from "@/components/BookingModal";
 const NAV_LINKS = [
   { label: "Inicio", href: "/" },
   { label: "Funcionalidades", href: "/#funcionalidades" },
-  { label: "Precios", href: "/#precios" },
 ];
 
 export default function Navbar() {
@@ -19,7 +18,10 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [rubrosOpen, setRubrosOpen] = useState(false);
   const [mobileRubrosOpen, setMobileRubrosOpen] = useState(false);
+  const [preciosOpen, setPreciosOpen] = useState(false);
+  const [mobilePreciosOpen, setMobilePreciosOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const preciosRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -32,6 +34,9 @@ export default function Navbar() {
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setRubrosOpen(false);
+      }
+      if (preciosRef.current && !preciosRef.current.contains(e.target as Node)) {
+        setPreciosOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -80,6 +85,32 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+
+          {/* Precios dropdown */}
+          <div className="relative" ref={preciosRef}>
+            <button
+              onClick={() => setPreciosOpen((v) => !v)}
+              className="relative flex items-center gap-1.5 px-5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-200 cursor-pointer"
+              style={pillStyle(preciosOpen)}
+            >
+              Precios
+              <ChevronDown size={12} className="transition-transform duration-200" style={{ transform: preciosOpen ? "rotate(180deg)" : "rotate(0deg)" }} />
+            </button>
+            {preciosOpen && (
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-44 rounded-2xl py-2 overflow-hidden"
+                style={{ background: "rgba(8,12,30,0.97)", border: "1px solid rgba(167,139,250,0.2)", boxShadow: "0 20px 60px rgba(0,0,0,0.6)", backdropFilter: "blur(20px)" }}>
+                {[{ label: "Planes", href: "/#precios" }, { label: "Costos IA", href: "/#calculadora" }].map((item) => (
+                  <Link key={item.href} href={item.href} onClick={() => setPreciosOpen(false)}
+                    className="flex items-center px-4 py-2.5 text-xs font-medium transition-all duration-150"
+                    style={{ color: "rgba(148,163,184,0.85)" }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#ffffff"; (e.currentTarget as HTMLElement).style.background = "rgba(167,139,250,0.1)"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(148,163,184,0.85)"; (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* Rubros dropdown */}
           <div className="relative" ref={dropdownRef}>
@@ -192,6 +223,26 @@ export default function Navbar() {
               </Link>
             );
           })}
+
+          {/* Mobile Precios accordion */}
+          <button onClick={() => setMobilePreciosOpen((v) => !v)}
+            className="flex items-center justify-between px-4 py-2.5 rounded-full text-sm font-medium uppercase tracking-widest transition-all"
+            style={{ color: "rgba(148,163,184,0.7)" }}>
+            Precios
+            <ChevronDown size={14} className="transition-transform duration-200" style={{ transform: mobilePreciosOpen ? "rotate(180deg)" : "rotate(0deg)" }} />
+          </button>
+          {mobilePreciosOpen && (
+            <div className="flex flex-col gap-1 px-2 pb-2">
+              {[{ label: "Planes", href: "/#precios" }, { label: "Costos IA", href: "/#calculadora" }].map((item) => (
+                <Link key={item.href} href={item.href}
+                  onClick={() => { setOpen(false); setMobilePreciosOpen(false); }}
+                  className="flex items-center px-3 py-2 rounded-xl text-xs font-medium"
+                  style={{ color: "rgba(148,163,184,0.85)", background: "rgba(255,255,255,0.04)" }}>
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          )}
 
           {/* Mobile Rubros accordion */}
           <button

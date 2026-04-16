@@ -93,7 +93,7 @@ export default function Footer() {
               {[
                 ["Funcionalidades", "#funcionalidades"],
                 ["Precios", "#precios"],
-                ["Calculadora IA", "/noticias/calculadora-costos-ia"],
+                ["Calculadora IA", "/#calculadora"],
               ].map(([label, href]) => (
                 <li key={label}>
                   <a href={href} className="hover:text-white transition-colors">{label}</a>
