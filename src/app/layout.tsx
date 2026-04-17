@@ -33,6 +33,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://clientador.com"),
   alternates: { canonical: "https://clientador.com" },
   icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/favicon.ico', sizes: '16x16', type: 'image/x-icon' },
+    ],
+    shortcut: '/favicon.ico',
     apple: '/images/og-image.png',
   },
   openGraph: {
