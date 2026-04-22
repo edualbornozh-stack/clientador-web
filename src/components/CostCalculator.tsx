@@ -116,11 +116,6 @@ export default function CostCalculator() {
           <p className="mt-4 max-w-2xl mx-auto text-lg" style={{ color: "#64748b" }}>
             Solo pagas por lo que usas.
           </p>
-          <p className="mt-2 max-w-xl mx-auto text-xs leading-relaxed" style={{ color: "#475569" }}>
-            {mode === "conversations"
-              ? "El costo se calcula en base al modelo de IA elegido, la cantidad de conversaciones diarias y los tokens promedio por mensaje (entrada + salida)."
-              : "El costo por minuto suma tres componentes: Voice Engine (base fija), proveedor de voz TTS y el modelo de IA que procesa el lenguaje."}
-          </p>
 
           {/* Toggle */}
           <div
@@ -146,6 +141,13 @@ export default function CostCalculator() {
               </button>
             ))}
           </div>
+
+          {/* Bajada explicativa */}
+          <p className="mt-4 text-xs leading-relaxed" style={{ color: "#475569" }}>
+            {mode === "conversations"
+              ? "Estimado en base al modelo elegido, conversaciones diarias y tokens promedio por mensaje (entrada + salida)."
+              : "Costo por minuto = Voice Engine (base fija $0.045) + proveedor de voz TTS + modelo de IA."}
+          </p>
         </div>
 
         <div
