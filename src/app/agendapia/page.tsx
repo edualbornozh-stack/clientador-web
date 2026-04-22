@@ -72,7 +72,6 @@ const PLANS_AGENDAPIA = [
     desc: "Para empresas que escalan sin límites",
     users: "Usuarios ilimitados",
     highlight: false,
-    badge: "Uso IA sin costo",
     features: [
       "Conexión con Whatsapp, Instagram, Facebook, Tik Tok, Gmail y Chat Web",
       "IA Conversacional",

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { RUBROS_LIST } from "@/lib/rubros-config";
 import { useBookingModal } from "@/components/BookingModal";
@@ -13,6 +14,10 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const { open: openBooking } = useBookingModal();
+  const pathname = usePathname();
+  const preciosLinks = pathname === "/agendapia"
+    ? [{ label: "Planes", href: "/agendapia#precios" }, { label: "Costos IA", href: "/agendapia#calculadora" }]
+    : [{ label: "Planes", href: "/#precios" }, { label: "Costos IA", href: "/#calculadora" }];
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("#inicio");
   const [scrolled, setScrolled] = useState(false);
@@ -99,7 +104,7 @@ export default function Navbar() {
             {preciosOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-44 rounded-2xl py-2 overflow-hidden"
                 style={{ background: "rgba(8,12,30,0.97)", border: "1px solid rgba(167,139,250,0.2)", boxShadow: "0 20px 60px rgba(0,0,0,0.6)", backdropFilter: "blur(20px)" }}>
-                {[{ label: "Planes", href: "/#precios" }, { label: "Costos IA", href: "/#calculadora" }].map((item) => (
+                {preciosLinks.map((item) => (
                   <Link key={item.href} href={item.href} onClick={() => setPreciosOpen(false)}
                     className="flex items-center px-4 py-2.5 text-xs font-medium transition-all duration-150"
                     style={{ color: "rgba(148,163,184,0.85)" }}
@@ -233,7 +238,7 @@ export default function Navbar() {
           </button>
           {mobilePreciosOpen && (
             <div className="flex flex-col gap-1 px-2 pb-2">
-              {[{ label: "Planes", href: "/#precios" }, { label: "Costos IA", href: "/#calculadora" }].map((item) => (
+              {preciosLinks.map((item) => (
                 <Link key={item.href} href={item.href}
                   onClick={() => { setOpen(false); setMobilePreciosOpen(false); }}
                   className="flex items-center px-3 py-2 rounded-xl text-xs font-medium"
