@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Calculator, Phone } from "lucide-react";
+import { MessageSquare, Phone } from "lucide-react";
 import { useBookingModal } from "@/components/BookingModal";
 
 // ─── Llamadas IA ─────────────────────────────────────────────────────────────
@@ -116,6 +116,11 @@ export default function CostCalculator() {
           <p className="mt-4 max-w-2xl mx-auto text-lg" style={{ color: "#64748b" }}>
             Solo pagas por lo que usas.
           </p>
+          <p className="mt-2 max-w-xl mx-auto text-xs leading-relaxed" style={{ color: "#475569" }}>
+            {mode === "conversations"
+              ? "El costo se calcula en base al modelo de IA elegido, la cantidad de conversaciones diarias y los tokens promedio por mensaje (entrada + salida)."
+              : "El costo por minuto suma tres componentes: Voice Engine (base fija), proveedor de voz TTS y el modelo de IA que procesa el lenguaje."}
+          </p>
 
           {/* Toggle */}
           <div
@@ -123,7 +128,7 @@ export default function CostCalculator() {
             style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
           >
             {([
-              { key: "conversations", icon: <Calculator size={14} />, label: "Conversaciones IA" },
+              { key: "conversations", icon: <MessageSquare size={14} />, label: "Conversaciones IA" },
               { key: "calls",         icon: <Phone size={14} />,      label: "Llamadas IA" },
             ] as { key: CalcMode; icon: React.ReactNode; label: string }[]).map(({ key, icon, label }) => (
               <button
@@ -200,7 +205,7 @@ export default function CostCalculator() {
               <div className="flex flex-col gap-4">
                 <div className="rounded-2xl p-6 flex-1" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)" }}>
                   <div className="flex items-center gap-2 mb-4">
-                    <Calculator size={18} style={{ color: "#a78bfa" }} />
+                    <MessageSquare size={18} style={{ color: "#a78bfa" }} />
                     <span className="font-semibold" style={{ color: "#e2e8f0" }}>Costo estimado mensual</span>
                   </div>
                   <div className="text-5xl font-bold mb-2" style={{ color: "#f1f5f9" }}>
