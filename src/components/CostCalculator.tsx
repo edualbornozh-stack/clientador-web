@@ -129,7 +129,7 @@ export default function CostCalculator() {
               <button
                 key={key}
                 onClick={() => setMode(key)}
-                className="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200"
+                className={`flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200${mode === key ? " toggle-active-shimmer" : ""}`}
                 style={
                   mode === key
                     ? { background: "rgba(124,58,237,0.25)", color: "#f1f5f9", border: "1px solid rgba(124,58,237,0.5)" }

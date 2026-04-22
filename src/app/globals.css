@@ -78,6 +78,17 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* toggle-shimmer: animated glow for active IA tabs */
+@keyframes toggle-shimmer {
+  0%   { box-shadow: 0 0 6px 1px rgba(167,139,250,0.35), 0 0 14px 2px rgba(56,189,248,0.15); }
+  50%  { box-shadow: 0 0 12px 3px rgba(192,132,252,0.55), 0 0 24px 6px rgba(124,58,237,0.25); }
+  100% { box-shadow: 0 0 6px 1px rgba(167,139,250,0.35), 0 0 14px 2px rgba(56,189,248,0.15); }
+}
+
+.toggle-active-shimmer {
+  animation: toggle-shimmer 2.4s ease-in-out infinite;
+}
+
 /* gradient-flow: uses background-position shorthand (GPU-compositable) */
 @keyframes gradient-flow {
   0%   { background-position: 0% 50%; }
