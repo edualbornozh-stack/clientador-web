@@ -22,9 +22,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 const GTM_ID = "GTM-W37VLX7P";
 
 export const metadata: Metadata = {
-  title: "La mejor IA para atender a clientes | Clientador",
+  title: "Clientador | Plataforma de Inteligencia Artificial · CRM con WhatsApp",
   description:
-    "Clientador: plataforma de IA que atiende, califica y convierte clientes 24/7 por WhatsApp, Instagram, Facebook y más. CRM inteligente, agenda automática y campañas masivas. Desde USD 79/mes.",
+    "Software de inteligencia artificial para empresas que automatiza ventas, atiende clientes con chatbot conversacional y gestiona tu CRM con WhatsApp, Instagram y más. Sistema automatizado de ventas desde USD 79/mes.",
   keywords:
     "IA para pymes, chatbot WhatsApp Chile, CRM inteligente Latinoamérica, automatización de ventas IA, atención al cliente inteligencia artificial, agente IA WhatsApp, chatbot para negocios, automatizar ventas Chile Colombia México Argentina, plataforma IA pymes, WhatsApp Business API, agenda automática IA, marketing conversacional IA",
   authors: [{ name: "Clientador" }, { name: "MercadoProveedor SpA" }],
@@ -45,14 +45,14 @@ export const metadata: Metadata = {
     locale: "es_CL",
     url: "https://clientador.com",
     siteName: "Clientador",
-    title: "Clientador – IA que atiende y vende por ti | WhatsApp + CRM",
+    title: "Clientador – Software de Inteligencia Artificial | CRM con WhatsApp",
     description:
-      "Automatiza tu atención al cliente con IA en WhatsApp, Instagram, Facebook y TikTok. CRM, agenda y campañas en un solo lugar. Sin conocimientos técnicos. Configura en 1 hora.",
+      "Automatiza ventas con chatbot conversacional en WhatsApp, Instagram y más. CRM inteligente, asistente virtual con IA y sistema automatizado de ventas. Sin conocimientos técnicos.",
     images: [{ url: "/images/og-image.png", width: 1200, height: 630, alt: "Clientador – Plataforma IA para pymes" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Clientador – IA que atiende y vende por ti",
+    title: "Clientador – Plataforma de Inteligencia Artificial para Ventas",
     description:
       "Automatiza ventas y atención al cliente con IA en WhatsApp, Instagram y más. CRM inteligente para pymes.",
     images: ["/images/og-image.png"],
@@ -96,7 +96,7 @@ const jsonLdSoftware = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web, iOS, Android",
   description:
-    "Plataforma de IA para automatizar la atención al cliente, CRM, agenda y marketing conversacional en WhatsApp, Instagram, Facebook y más canales. Diseñada para pymes en Latinoamérica.",
+    "Plataforma de inteligencia artificial para automatizar ventas y atención al cliente. CRM con WhatsApp, chatbot conversacional, asistente virtual con IA y sistema automatizado de ventas para pymes en Latinoamérica.",
   url: "https://clientador.com",
   offers: [
     {
@@ -135,6 +135,9 @@ const jsonLdSoftware = {
     "Email marketing integrado",
     "Integración WhatsApp Business API oficial",
     "Multicanal: Instagram, Facebook, TikTok, Gmail",
+    "Chatbot conversacional con IA 24/7",
+    "Sistema automatizado de ventas",
+    "Asistente virtual con inteligencia artificial",
   ],
   aggregateRating: {
     "@type": "AggregateRating",

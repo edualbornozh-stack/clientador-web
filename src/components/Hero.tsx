@@ -65,7 +65,7 @@ export default function Hero() {
             className="text-slate-400 text-base lg:text-lg leading-relaxed max-w-md font-normal text-center lg:text-left"
             style={{ fontFamily: "var(--font-inter, Inter, sans-serif)" }}
           >
-            Responde, califica clientes y haz seguimiento para convertir más, sin aumentar tus costos.
+            Automatiza ventas, atiende por WhatsApp y agenda citas con inteligencia artificial. Más conversiones sin aumentar tus costos.
           </p>
 
           {/* CTA Buttons */}

@@ -13,8 +13,8 @@ import { useBookingModal } from "@/components/BookingModal";
 const FEATURES = [
   {
     icon: MessageSquare,
-    title: "Chat IA Multicanal",
-    desc: "Atiende automáticamente por WhatsApp, Instagram, Facebook, TikTok, Web y Gmail con un solo agente de IA.",
+    title: "Chatbot Conversacional Multicanal",
+    desc: "Asistente virtual con inteligencia artificial que atiende por WhatsApp, Instagram, Facebook, TikTok, Web y Gmail con chat multiagente.",
     color: "#a78bfa",
     bg: "rgba(124,58,237,0.12)",
     border: "rgba(124,58,237,0.25)",
@@ -22,31 +22,31 @@ const FEATURES = [
   {
     icon: Users,
     title: "CRM Inteligente",
-    desc: "Registra automáticamente cada contacto, conversación y etapa del embudo. Tu equipo siempre al día.",
+    desc: "CRM con WhatsApp integrado: registra contactos, conversaciones y etapas del embudo automáticamente. Tu equipo siempre al día.",
     color: "#60a5fa",
     bg: "rgba(59,130,246,0.12)",
     border: "rgba(59,130,246,0.25)",
   },
   {
     icon: Calendar,
-    title: "Agenda Automatizada",
-    desc: "La IA agenda, reagenda y cancela citas directamente en la conversación, sin intervención humana.",
+    title: "Agendar Citas por WhatsApp",
+    desc: "Agenda, reagenda y cancela citas directamente por WhatsApp con IA, sin intervención humana.",
     color: "#34d399",
     bg: "rgba(16,185,129,0.12)",
     border: "rgba(16,185,129,0.25)",
   },
   {
     icon: Zap,
-    title: "Automatizaciones IA",
-    desc: "Crea flujos de trabajo inteligentes: seguimientos automáticos, recordatorios, cotizaciones y más.",
+    title: "Automatización de Ventas con IA",
+    desc: "Sistema automatizado de ventas: seguimientos, recordatorios, cotizaciones y automatización de WhatsApp para cerrar más negocios.",
     color: "#fbbf24",
     bg: "rgba(245,158,11,0.12)",
     border: "rgba(245,158,11,0.25)",
   },
   {
     icon: Mail,
-    title: "Marketing y Campañas",
-    desc: "Envía campañas masivas por WhatsApp y email con segmentación inteligente y personalización por IA.",
+    title: "Mensajes de WhatsApp para Ventas",
+    desc: "Envía mensajes de WhatsApp para ventas de forma masiva, con segmentación inteligente y personalización por IA.",
     color: "#f472b6",
     bg: "rgba(236,72,153,0.12)",
     border: "rgba(236,72,153,0.25)",
@@ -71,10 +71,10 @@ export default function Features() {
             Funcionalidades
           </span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold" style={{ color: "#f1f5f9" }}>
-            Todo lo que necesitas para convertir más
+            Todo lo que necesitas para automatizar ventas y convertir más
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg" style={{ color: "#64748b" }}>
-            Desde el primer contacto hasta el cliente fidelizado, Clientador te acompaña en cada paso del proceso de ventas.
+            Chatbot conversacional, CRM con WhatsApp, agenda automática y automatización IA en una sola plataforma de inteligencia artificial.
           </p>
         </div>
 

@@ -218,9 +218,10 @@ const SECTIONS = [
     title: (
       <>Agentes <GradientText>IA</GradientText> que conversan con tus clientes 24/7</>
     ),
-    desc: "Agentes que responden al instante en lenguaje natural y entrenados con tu información para tener conversaciones fluidas y mejorar la atención.",
+    desc: "Chatbot conversacional y asistente virtual con inteligencia artificial que responde al instante. Entrenado con la información de tu negocio para conversaciones fluidas y mejor atención al cliente.",
     points: [
       "Entrenado con tu información.",
+      "Chat multiagente WhatsApp",
       "Agenda citas y reuniones",
       "Escucha audio y lee imágenes",
       "Seguimiento automatizado",
@@ -252,7 +253,7 @@ const SECTIONS = [
           <div className="flex-shrink-0 w-11 h-11 rounded-full overflow-hidden border-2 border-white/60">
             <img
               src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=88&q=80"
-              alt="Agente"
+              alt="Agente de llamadas IA - inteligencia artificial para call center"
               className="w-full h-full object-cover"
             />
           </div>
@@ -267,7 +268,7 @@ const SECTIONS = [
             <div className="relative w-full h-full rounded-full overflow-hidden bg-[#f3f0ff]">
               <img
                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80"
-                alt="Agente IA"
+                alt="Asistente virtual con inteligencia artificial atendiendo llamadas de voz"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -307,9 +308,9 @@ const SECTIONS = [
     icon: GitBranch,
     badge: "Automatizaciones IA",
     title: (
-      <>Automatiza trabajo <GradientText>repetitivo</GradientText></>
+      <>Automatiza ventas y trabajo <GradientText>repetitivo</GradientText></>
     ),
-    desc: "Dile a la IA que quieres automatizar forma más inteligente, rápida y sencilla.",
+    desc: "Sistema automatizado de ventas: dile a la IA qué quieres automatizar de forma más inteligente, rápida y sencilla.",
     points: [
       "Seguimiento automatizado",
       "Avance en proceso comercial",
