@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { RUBROS_LIST } from "@/lib/rubros-config";
 import { BLOG_POSTS } from "@/lib/blog-posts";
+import { ALL_COMPETITORS } from "@/lib/competitors";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://clientador.com";
@@ -20,6 +21,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
+  const alternativaUrls: MetadataRoute.Sitemap = ALL_COMPETITORS.map((c) => ({
+    url: `${base}/alternativa/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
   return [
     {
       url: base,
@@ -29,6 +37,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...rubroUrls,
     ...blogUrls,
+    {
+      url: `${base}/alternativa`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    ...alternativaUrls,
     {
       url: `${base}/sobre-nosotros`,
       lastModified: now,
