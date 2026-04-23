@@ -9,7 +9,6 @@ import CostCalculator from "@/components/CostCalculator";
 import FAQ from "@/components/FAQ";
 import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
 import FadeIn from "@/components/FadeIn";
 
 export default function HomePage() {
@@ -28,7 +27,6 @@ export default function HomePage() {
         <FadeIn delay={0.05}><FooterCTA /></FadeIn>
       </main>
       <Footer />
-      <WhatsAppWidget />
     </>
   );
 }

@@ -1,3 +1,5 @@
+import { PRICE_LABELS } from "@/lib/config";
+
 export type CompetitorCategory = "ai-whatsapp" | "crm";
 
 export interface Competitor {
@@ -33,7 +35,7 @@ export const COMPETITORS: Record<string, Competitor> = {
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Soporte básico en planes bajos", clientadorWins: true },
       { feature: "Canales conectados", clientador: "WhatsApp, Instagram, Facebook, TikTok, Gmail, Chat Web", competitor: "Principalmente WhatsApp", clientadorWins: true },
       { feature: "Automatizaciones IA", clientador: "✅ Incluidas en plan Growth y Premium", competitor: "Limitadas o de pago adicional", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes", competitor: "Precio más elevado por funciones equivalentes", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom}", competitor: "Precio más elevado por funciones equivalentes", clientadorWins: true },
     ],
     faqItems: [
       { q: "¿Por qué elegir Clientador sobre Vambe?", a: "Clientador incluye CRM, automatizaciones y soporte humano en el mismo plan, sin costo de implementación. La IA funciona de forma ilimitada y solo pagas por el uso real, lo que lo hace más económico para pymes en crecimiento." },
@@ -55,7 +57,7 @@ export const COMPETITORS: Record<string, Competitor> = {
       { feature: "Sin costo de implementación", clientador: "✅ Configuración sin cargo", competitor: "Requiere setup inicial pago", clientadorWins: true },
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Soporte automatizado en planes base", clientadorWins: true },
       { feature: "Canales conectados", clientador: "WhatsApp, Instagram, Facebook, TikTok, Gmail, Chat Web", competitor: "Canales limitados según plan", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes", competitor: "Precio comparable o mayor con menos funciones", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom}", competitor: "Precio comparable o mayor con menos funciones", clientadorWins: true },
     ],
     faqItems: [
       { q: "¿Es Clientador mejor que Clinera?", a: "Clientador ofrece una plataforma más completa: CRM incluido, multicanal, automatizaciones IA y soporte humano, todo sin costo de implementación. Para pymes que buscan una solución integral, es una ventaja clara." },
@@ -77,7 +79,7 @@ export const COMPETITORS: Record<string, Competitor> = {
       { feature: "Sin costo de implementación", clientador: "✅ Configuración sin cargo", competitor: "Setup con costo adicional", clientadorWins: true },
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Soporte limitado en planes base", clientadorWins: true },
       { feature: "Canales conectados", clientador: "WhatsApp, Instagram, Facebook, TikTok, Gmail, Chat Web", competitor: "Principalmente WhatsApp", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes", competitor: "Similar o mayor con menos funciones incluidas", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom}", competitor: "Similar o mayor con menos funciones incluidas", clientadorWins: true },
     ],
     faqItems: [
       { q: "¿Qué ventajas tiene Clientador sobre Comos?", a: "Clientador incluye CRM inteligente, agenda automática, multicanal completo y automatizaciones IA en un solo plan. Comos se enfoca principalmente en WhatsApp, mientras Clientador conecta todos tus canales." },
@@ -99,7 +101,7 @@ export const COMPETITORS: Record<string, Competitor> = {
       { feature: "Sin costo de implementación", clientador: "✅ Configuración sin cargo", competitor: "Implementación con costo", clientadorWins: true },
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Soporte técnico estándar", clientadorWins: true },
       { feature: "Canales conectados", clientador: "WhatsApp, Instagram, Facebook, TikTok, Gmail, Chat Web", competitor: "Canales según integración", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes", competitor: "Precio más elevado para funciones equivalentes", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom}", competitor: "Precio más elevado para funciones equivalentes", clientadorWins: true },
     ],
     faqItems: [
       { q: "¿Por qué Clientador es mejor alternativa a Versu AI?", a: "Clientador es una plataforma todo en uno: incluye CRM, automatizaciones, marketing masivo y IA conversacional sin necesidad de integrar herramientas externas ni pagar implementación." },
@@ -121,7 +123,7 @@ export const COMPETITORS: Record<string, Competitor> = {
       { feature: "Sin costo de implementación", clientador: "✅ Configuración sin cargo", competitor: "Requiere configuración técnica", clientadorWins: true },
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Soporte con tiempos de espera", clientadorWins: true },
       { feature: "IA conversacional nativa", clientador: "✅ IA que conversa en lenguaje natural", competitor: "Flujos basados en reglas y botones", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes", competitor: "Costo comparable con menos IA incluida", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom}", competitor: "Costo comparable con menos IA incluida", clientadorWins: true },
     ],
     faqItems: [
       { q: "¿Qué diferencia a Clientador de Zolutium?", a: "Clientador usa IA conversacional real (no flujos por botones), incluye CRM propio y está configurado por el equipo sin costo adicional. Zolutium se basa principalmente en automatizaciones por reglas." },
@@ -136,14 +138,14 @@ export const COMPETITORS: Record<string, Competitor> = {
     categoryLabel: "Plataforma de automatización WhatsApp",
     headline: "La alternativa a Atom con IA real y plataforma todo en uno",
     metaTitle: "Alternativa a Atom | Clientador vs Atom – IA conversacional todo en uno",
-    metaDesc: "¿Buscas alternativa a Atom? Clientador ofrece IA conversacional, CRM incluido, soporte humano y sin costo de implementación. Desde USD 79/mes.",
+    metaDesc: "¿Buscas alternativa a Atom? Clientador ofrece IA conversacional, CRM incluido, soporte humano y sin costo de implementación. ${PRICE_LABELS.baseFrom}.",
     comparisonRows: [
       { feature: "IA ilimitada (pago por uso real)", clientador: "✅ Solo pagas lo que usas", competitor: "Planes con límites de conversaciones", clientadorWins: true },
       { feature: "CRM incluido en el plan", clientador: "✅ Incluido desde el plan base", competitor: "No incluido nativamente", clientadorWins: true },
       { feature: "Sin costo de implementación", clientador: "✅ Configuración sin cargo", competitor: "Setup con cargo inicial", clientadorWins: true },
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Soporte por tickets en planes bajos", clientadorWins: true },
       { feature: "Canales conectados", clientador: "WhatsApp, Instagram, Facebook, TikTok, Gmail, Chat Web", competitor: "WhatsApp principalmente", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes", competitor: "Precio más elevado o con menos funciones base", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom}", competitor: "Precio más elevado o con menos funciones base", clientadorWins: true },
     ],
     faqItems: [
       { q: "¿Clientador es mejor que Atom para ventas?", a: "Clientador incluye CRM con calificación de leads, automatizaciones de seguimiento y campañas masivas por WhatsApp, funciones que en Atom requieren integraciones adicionales." },
@@ -165,7 +167,7 @@ export const COMPETITORS: Record<string, Competitor> = {
       { feature: "Sin costo de implementación", clientador: "✅ Configuración sin cargo", competitor: "Implementación con cargo adicional", clientadorWins: true },
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Soporte estándar según plan", clientadorWins: true },
       { feature: "Canales conectados", clientador: "WhatsApp, Instagram, Facebook, TikTok, Gmail, Chat Web", competitor: "Canales variables por plan", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes", competitor: "Precio similar o mayor con menos incluido", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom}", competitor: "Precio similar o mayor con menos incluido", clientadorWins: true },
     ],
     faqItems: [
       { q: "¿Por qué elegir Clientador sobre Eclectic?", a: "Clientador entrega una plataforma completa con CRM, IA, multicanal y automatizaciones en un solo lugar, sin necesidad de integrar otras herramientas ni pagar implementación." },
@@ -180,14 +182,14 @@ export const COMPETITORS: Record<string, Competitor> = {
     categoryLabel: "Plataforma de IA para empresas",
     headline: "La alternativa a Dapta con soporte humano y sin costo de implementación",
     metaTitle: "Alternativa a Dapta | Clientador vs Dapta – Soporte humano + IA ilimitada",
-    metaDesc: "¿Evaluando Dapta? Clientador ofrece IA ilimitada, CRM incluido, soporte humano desde el día 1 y sin costo de implementación. Desde USD 79/mes.",
+    metaDesc: "¿Evaluando Dapta? Clientador ofrece IA ilimitada, CRM incluido, soporte humano desde el día 1 y sin costo de implementación. ${PRICE_LABELS.baseFrom}.",
     comparisonRows: [
       { feature: "IA ilimitada (pago por uso real)", clientador: "✅ Solo pagas lo que usas", competitor: "Planes con límites de uso de IA", clientadorWins: true },
       { feature: "CRM incluido en el plan", clientador: "✅ Incluido desde el plan base", competitor: "No incluido en plan base", clientadorWins: true },
       { feature: "Sin costo de implementación", clientador: "✅ Configuración sin cargo", competitor: "Implementación con costo", clientadorWins: true },
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Soporte técnico variable", clientadorWins: true },
       { feature: "Canales conectados", clientador: "WhatsApp, Instagram, Facebook, TikTok, Gmail, Chat Web", competitor: "Canales según integración contratada", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes", competitor: "Precio más elevado para funciones equivalentes", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom}", competitor: "Precio más elevado para funciones equivalentes", clientadorWins: true },
     ],
     faqItems: [
       { q: "¿Clientador es una buena alternativa a Dapta?", a: "Sí. Clientador incluye CRM, automatizaciones, multicanal y soporte humano sin costo de implementación, todo en una plataforma pensada para pymes latinoamericanas." },
@@ -207,7 +209,7 @@ export const COMPETITORS: Record<string, Competitor> = {
       { feature: "IA conversacional nativa", clientador: "✅ IA que atiende y vende 24/7", competitor: "❌ Sin IA conversacional integrada", clientadorWins: true },
       { feature: "WhatsApp API Oficial integrado", clientador: "✅ Incluido en todos los planes", competitor: "❌ Requiere integración de terceros", clientadorWins: true },
       { feature: "Sin costo de implementación", clientador: "✅ Configuración sin cargo", competitor: "❌ Onboarding de miles de dólares", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes", competitor: "Desde USD 800/mes para funciones equivalentes", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom}", competitor: "Desde USD 800/mes para funciones equivalentes", clientadorWins: true },
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Solo en planes Enterprise", clientadorWins: true },
       { feature: "Configuración en horas", clientador: "✅ Menos de 24 horas", competitor: "❌ Semanas de implementación", clientadorWins: true },
     ],
@@ -231,7 +233,7 @@ export const COMPETITORS: Record<string, Competitor> = {
       { feature: "Sin costo de implementación", clientador: "✅ Configuración sin cargo", competitor: "Requiere configuración técnica", clientadorWins: true },
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Soporte estándar", clientadorWins: true },
       { feature: "IA ilimitada (pago por uso real)", clientador: "✅ Solo pagas lo que usas", competitor: "❌ No incluye IA conversacional", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes", competitor: "Precio similar pero sin IA incluida", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom}", competitor: "Precio similar pero sin IA incluida", clientadorWins: true },
     ],
     faqItems: [
       { q: "¿Qué ventaja tiene Clientador sobre Kommo?", a: "La principal diferencia es la IA conversacional nativa: Clientador atiende, califica y hace seguimiento a tus leads de forma automática sin que necesites estar conectado. Kommo es un CRM WhatsApp sin IA integrada." },
@@ -253,7 +255,7 @@ export const COMPETITORS: Record<string, Competitor> = {
       { feature: "Sin costo de implementación", clientador: "✅ Configuración sin cargo", competitor: "Setup con costo", clientadorWins: true },
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Soporte estándar por plan", clientadorWins: true },
       { feature: "IA ilimitada (pago por uso real)", clientador: "✅ Solo pagas lo que usas", competitor: "❌ No incluye IA conversacional", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes", competitor: "Precio comparable con menos funciones IA", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom}", competitor: "Precio comparable con menos funciones IA", clientadorWins: true },
     ],
     faqItems: [
       { q: "¿Por qué Clientador es mejor alternativa a Clientify?", a: "Clientador añade IA conversacional nativa sobre un CRM completo con WhatsApp integrado. Clientify es un CRM tradicional que no incluye automatización por IA ni atención automática de clientes." },
@@ -275,7 +277,7 @@ export const COMPETITORS: Record<string, Competitor> = {
       { feature: "Sin costo de implementación", clientador: "✅ Configuración en 24 horas sin cargo", competitor: "❌ Implementación compleja y costosa", clientadorWins: true },
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Soporte técnico por tickets", clientadorWins: true },
       { feature: "Configuración sin conocimientos técnicos", clientador: "✅ El equipo configura todo", competitor: "❌ Curva de aprendizaje alta", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes (todo incluido)", competitor: "Módulos adicionales con costo extra", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom} (todo incluido)", competitor: "Módulos adicionales con costo extra", clientadorWins: true },
     ],
     faqItems: [
       { q: "¿Clientador es más fácil de usar que Zoho CRM?", a: "Sí. Zoho CRM tiene una curva de aprendizaje alta y requiere configuración técnica. Clientador está operativo en menos de 24 horas, con el equipo haciendo todo el setup por ti." },
@@ -297,7 +299,7 @@ export const COMPETITORS: Record<string, Competitor> = {
       { feature: "Sin costo de implementación", clientador: "✅ Configuración sin cargo", competitor: "Requiere configuración del equipo", clientadorWins: true },
       { feature: "Soporte humano desde el día 1", clientador: "✅ Soporte directo desde el inicio", competitor: "Soporte estándar", clientadorWins: true },
       { feature: "IA ilimitada (pago por uso real)", clientador: "✅ Solo pagas lo que usas", competitor: "❌ No incluye IA conversacional", clientadorWins: true },
-      { feature: "Precio base mensual", clientador: "Desde USD 79/mes", competitor: "Precio comparable pero sin IA ni WhatsApp nativo", clientadorWins: true },
+      { feature: "Precio base mensual", clientador: "${PRICE_LABELS.baseFrom}", competitor: "Precio comparable pero sin IA ni WhatsApp nativo", clientadorWins: true },
     ],
     faqItems: [
       { q: "¿Clientador reemplaza a Pipedrive?", a: "Sí. Clientador tiene las funciones de CRM de Pipedrive (embudo de ventas, gestión de contactos, seguimiento) y añade IA conversacional, WhatsApp integrado y automatizaciones que Pipedrive no incluye nativamente." },

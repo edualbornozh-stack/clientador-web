@@ -3,8 +3,10 @@ import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
 import { BookingModalProvider } from "@/components/BookingModal";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { PRICING, PRICE_LABELS } from "@/lib/config";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -102,7 +104,7 @@ const jsonLdSoftware = {
     {
       "@type": "Offer",
       name: "Plan Básico",
-      price: "79",
+      price: String(PRICING.basic.usd),
       priceCurrency: "USD",
       billingIncrement: "month",
       description: "3 usuarios, IA Conversacional, CRM, WhatsApp Masivo",
@@ -110,7 +112,7 @@ const jsonLdSoftware = {
     {
       "@type": "Offer",
       name: "Plan Growth",
-      price: "129",
+      price: String(PRICING.growth.usd),
       priceCurrency: "USD",
       billingIncrement: "month",
       description: "7 usuarios, Automatizaciones IA, Chat Web, CRM avanzado",
@@ -118,7 +120,7 @@ const jsonLdSoftware = {
     {
       "@type": "Offer",
       name: "Plan Premium",
-      price: "249",
+      price: String(PRICING.premium.usd),
       priceCurrency: "USD",
       billingIncrement: "month",
       description: "Usuarios ilimitados, Llamadas IA, Email Marketing, todo incluido",
@@ -181,7 +183,7 @@ const jsonLdFaq = {
       name: "¿Cuánto cuesta Clientador?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Clientador tiene tres planes: Plan Básico desde USD 79/mes (3 usuarios), Plan Growth desde USD 129/mes (7 usuarios) y Plan Premium desde USD 249/mes (usuarios ilimitados). El uso de IA se cobra por consumo real.",
+        text: `Clientador tiene tres planes: Plan Básico desde ${PRICE_LABELS.basic} (3 usuarios), Plan Growth desde ${PRICE_LABELS.growth} (7 usuarios) y Plan Premium desde ${PRICE_LABELS.premium} (usuarios ilimitados). El uso de IA se cobra por consumo real.`,
       },
     },
     {
@@ -227,6 +229,7 @@ export default function RootLayout({
             <Navbar />
             {children}
           </SmoothScroll>
+          <WhatsAppWidget />
         </BookingModalProvider>
       </body>
     </html>

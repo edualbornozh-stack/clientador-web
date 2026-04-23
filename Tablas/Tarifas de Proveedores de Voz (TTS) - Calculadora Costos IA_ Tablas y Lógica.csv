@@ -1,0 +1,5 @@
+Proveedor,Modelo/Versión,Tarifa (Minuto),Calidad Sugerida
+OpenAI,Standard TTS,$0.015,Económica / Alta
+Cartesia,Standard TTS,$0.015,Económica / Ultra-Rápida
+ElevenLabs,V2.5,$0.035,Premium Balanceada
+ElevenLabs,V3,$0.170,Ultra-Premium (Humana)

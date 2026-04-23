@@ -3,6 +3,7 @@
 import { Check } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useBookingModal } from "@/components/BookingModal";
+import { PRICING, PRICE_LABELS } from "@/lib/config";
 
 // ─── Tipos ───────────────────────────────────────────────────────────────────
 type Currency = "usd" | "clp";
@@ -25,7 +26,7 @@ function formatPrice(usdPrice: number, currency: Currency): string {
 const PLANS = [
   {
     name: "Básico",
-    price: 79,
+    price: PRICING.basic.usd,
     desc: "Para negocios que están comenzando con IA",
     users: "3 usuarios",
     highlight: false,
@@ -47,7 +48,7 @@ const PLANS = [
   },
   {
     name: "Growth",
-    price: 129,
+    price: PRICING.growth.usd,
     desc: "Para equipos de ventas en crecimiento",
     users: "7 usuarios",
     highlight: true,
@@ -69,7 +70,7 @@ const PLANS = [
   },
   {
     name: "Premium",
-    price: 249,
+    price: PRICING.premium.usd,
     desc: "Para empresas que escalan sin límites",
     users: "Usuarios ilimitados",
     highlight: false,
@@ -220,7 +221,7 @@ export default function Pricing() {
         </div>
 
         <p className="text-center mt-8 text-sm" style={{ color: "#475569" }}>
-          Todos los planes incluyen IA ilimitada basado en costo por uso · Sin costo de implementación · Puede agregar usuarios adicionales por {isCLP ? "$7.000 CLP" : "U$7"}
+          Todos los planes incluyen IA ilimitada basado en costo por uso · Sin costo de implementación · Puede agregar usuarios adicionales por {isCLP ? PRICE_LABELS.extraUserClp : PRICE_LABELS.extraUserUsd}
         </p>
       </div>
     </section>
