@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { COMPETITORS, ALL_COMPETITORS } from "@/lib/competitors";
 import BookingButton from "@/components/BookingButton";
+import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
 
 type Props = { params: Promise<{ competitor: string }> };
@@ -137,6 +138,9 @@ export default async function AlternativaPage({ params }: Props) {
             ))}
           </div>
         </section>
+
+        {/* ── PLANES DE PRECIOS ── */}
+        <Pricing />
 
         {/* ── FAQ ── */}
         <section style={{ maxWidth: "720px", margin: "0 auto", padding: "0 1.5rem 5rem" }}>
