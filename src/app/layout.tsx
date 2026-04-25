@@ -34,14 +34,8 @@ export const metadata: Metadata = {
   publisher: "Clientador",
   metadataBase: new URL("https://clientador.com"),
   alternates: { canonical: "https://clientador.com" },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
-      { url: '/favicon.ico', sizes: '16x16', type: 'image/x-icon' },
-    ],
-    shortcut: '/favicon.ico',
-    apple: '/images/og-image.png',
-  },
+  // icons: Next.js auto-detecta src/app/favicon.ico y src/app/apple-icon.png
+  // No declarar manualmente para evitar conflictos de sizes con el archivo real.
   openGraph: {
     type: "website",
     locale: "es_CL",
