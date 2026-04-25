@@ -250,7 +250,8 @@ function AgendapiaPricing() {
                       {formatCLP(plan.discountCLP)}
                     </span>
                   </div>
-                  <span className="text-sm mt-1 mb-4" style={{ color: "#64748b" }}>CLP / mes</span>
+                  <span className="text-sm mt-1" style={{ color: "#64748b" }}>CLP / mes</span>
+                  <span className="text-xs mt-0.5 mb-4" style={{ color: "#475569" }}>+ IVA</span>
 
                   {/* Usuarios */}
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#a78bfa]/40 bg-white/5 text-xs font-semibold text-white shadow-sm mb-2">

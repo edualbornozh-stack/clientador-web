@@ -183,6 +183,7 @@ export default function Pricing() {
                     </span>
                     <span className="text-sm mb-1" style={{ color: "#64748b" }}>/mes</span>
                   </div>
+                  <div className="text-xs mt-0.5 mb-1" style={{ color: "#475569" }}>+ IVA</div>
 
                   {/* Usuarios */}
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#a78bfa]/40 bg-white/5 text-xs font-semibold text-white shadow-sm mb-2">
