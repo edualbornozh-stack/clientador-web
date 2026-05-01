@@ -2803,5 +2803,116 @@
     ],
     "ctaTitle": "Transforma tu tienda de ropa con un agente de IA que vende por WhatsApp",
     "ctaDescription": "Agenda una demo personalizada con el equipo de Clientador y descubre cómo automatizar consultas de tallas, disponibilidad y pedidos en tu tienda de ropa. Te mostramos resultados reales en menos de 30 minutos."
+  },
+  {
+    "slug": "agente-ia-para-joyerias-automatizar-consultas-cotizaciones-ventas-whatsapp",
+    "title": "Agente de IA para Joyerías: Cómo Automatizar Consultas, Cotizaciones y Ventas Personalizadas por WhatsApp",
+    "metaTitle": "Agente de IA para Joyerías | Ventas por WhatsApp",
+    "metaDescription": "Descubre cómo un agente de IA para joyerías automatiza consultas, cotizaciones y ventas personalizadas por WhatsApp. Guía práctica para pymes en LATAM.",
+    "category": "Casos de uso por rubro",
+    "date": "Mayo 2026",
+    "readTime": "6 min lectura",
+    "intro": "En el mundo de la joyería, cada cliente llega con una historia: un aniversario, un compromiso, un regalo que debe ser perfecto. Pero cuando esas consultas se multiplican por WhatsApp —preguntas sobre precios, disponibilidad, grabados personalizados, métodos de pago— hasta la joyería más organizada termina perdiendo ventas por demora en las respuestas. En este artículo te mostramos cómo un agente de IA conversacional puede transformar tu joyería en una máquina de ventas personalizada que atiende 24/7, sin perder el toque humano que tus clientes esperan.",
+    "sections": [
+      {
+        "type": "text",
+        "title": "El desafío real de vender joyas por WhatsApp en Latinoamérica",
+        "content": "Si tienes una joyería en Ciudad de México, Bogotá, Santiago o cualquier ciudad intermedia, probablemente ya sabes que WhatsApp es tu canal de ventas más poderoso. Según datos de la Asociación Mexicana de Venta Online (AMVO), el 79% de los consumidores mexicanos ha utilizado WhatsApp para comunicarse con un negocio antes de realizar una compra. En Colombia, la cifra es similar: un estudio de la Cámara Colombiana de Comercio Electrónico sitúa el uso de mensajería instantánea para consultas comerciales por encima del 72%. En Chile, el comercio conversacional creció un 34% interanual según reportes de la CCS al cierre de 2025.\n\nPero aquí está el problema: vender joyas no es vender commodities. Un cliente que pregunta por un anillo de compromiso en oro de 14 quilates necesita sentir confianza, resolver dudas técnicas sobre quilataje, piedras y certificaciones, recibir una cotización a medida —a veces con grabado personalizado— y finalmente agendar una visita a la tienda o coordinar un envío asegurado. Todo eso requiere tiempo, conocimiento y disponibilidad. Y cuando llegan 40 conversaciones simultáneas un viernes por la tarde, el equipo humano simplemente no alcanza.\n\nEl resultado es predecible: mensajes sin responder durante horas, cotizaciones que se envían tarde, clientes que se van a la competencia y una sensación constante de que estás dejando dinero sobre la mesa. Según HubSpot, el 82% de los consumidores espera una respuesta en menos de 10 minutos cuando contacta a un negocio por mensajería. En joyería, donde las compras son emocionales y el momento importa, esa ventana se cierra aún más rápido."
+      },
+      {
+        "type": "cards",
+        "title": "5 problemas que un agente de IA resuelve en tu joyería",
+        "items": [
+          {
+            "label": "01 — Consultas repetitivas que saturan a tu equipo",
+            "content": "\"¿Tienen anillos en oro rosa?\", \"¿Hacen grabados?\", \"¿Cuál es el precio del quilate?\". Un agente de IA responde estas preguntas al instante, con información precisa de tu catálogo, liberando a tus vendedores para atender las conversaciones que realmente requieren asesoría experta."
+          },
+          {
+            "label": "02 — Cotizaciones lentas que enfrían al cliente",
+            "content": "El asistente IA puede generar cotizaciones personalizadas en segundos, considerando tipo de metal, peso, piedra, talla y personalización. El cliente recibe un PDF o mensaje detallado sin esperar a que alguien revise una hoja de cálculo."
+          },
+          {
+            "label": "03 — Seguimiento post-consulta inexistente",
+            "content": "El 48% de las ventas en retail de lujo se concretan después del tercer contacto. La IA conversacional programa seguimientos automáticos: \"Hola María, ¿pudiste revisar la cotización del anillo Trinity? Tenemos disponibilidad esta semana para que lo veas en tienda.\""
+          },
+          {
+            "label": "04 — Horarios limitados, clientes globales",
+            "content": "Una joyería en Polanco que recibe consultas desde Monterrey a las 11 p.m., o una tienda en Providencia contactada desde Antofagasta en horario de almuerzo. El agente de IA atiende 24/7 sin costos de turno nocturno, capturando leads que antes se perdían."
+          },
+          {
+            "label": "05 — Falta de datos para tomar decisiones",
+            "content": "¿Cuáles son las piezas más consultadas? ¿Qué rango de precio abandona el cliente? ¿Qué día de la semana se generan más cotizaciones? Un sistema de IA conversacional con CRM integrado convierte cada conversación en datos accionables para tu negocio."
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "title": "Cómo funciona un agente de IA en una joyería: un ejemplo real",
+        "content": "Imaginemos a Sofía, dueña de una joyería artesanal con dos sucursales en Medellín y una tienda en línea que despacha a todo Colombia. Sofía implementó un agente de IA conectado a su WhatsApp Business API. Veamos qué ocurre cuando un cliente escribe:\n\n**Cliente:** \"Hola, busco un par de aretes en plata con piedra turquesa. ¿Tienen algo así? Mi presupuesto es de unos 250.000 pesos.\"\n\n**Agente de IA:** \"¡Hola! Qué gusto saludarte 💎. Sí tenemos varias opciones en aretes de plata 925 con turquesa natural. Te comparto tres opciones dentro de tu presupuesto: [imagen 1 + precio] [imagen 2 + precio] [imagen 3 + precio]. ¿Te gustaría que te agende una visita a nuestra tienda en El Poblado para verlos en persona, o prefieres que te los enviemos con certificado de autenticidad incluido?\"\n\nEn menos de 8 segundos, el cliente recibió opciones reales con fotos e información de precio. La IA accedió al catálogo, filtró por material, piedra y rango de precio, y además ofreció el siguiente paso lógico: agendar visita o coordinar envío. Si el cliente elige agendar, el sistema consulta la disponibilidad real del calendario y confirma el horario automáticamente.\n\nEste tipo de interacción no es ciencia ficción. Es automatización inteligente aplicada al retail de lujo, y ya está funcionando en joyerías de Santiago, Bogotá, Ciudad de México, Guadalajara y Barranquilla."
+      },
+      {
+        "type": "steps",
+        "title": "Cómo implementar un agente de IA en tu joyería paso a paso",
+        "items": [
+          {
+            "label": "Paso 1: Organiza tu catálogo y preguntas frecuentes",
+            "content": "Antes de activar cualquier tecnología, documenta tu catálogo con fotos de calidad, descripciones detalladas (metal, quilataje, piedras, peso, tallas disponibles) y precios o rangos de precio. También recopila las 20-30 preguntas más frecuentes que reciben tus vendedores. Este material será la base de conocimiento de tu agente de IA."
+          },
+          {
+            "label": "Paso 2: Define los flujos de conversación prioritarios",
+            "content": "No necesitas automatizar todo de golpe. Empieza por los tres flujos que más impactan tu facturación: consultas de catálogo y disponibilidad, generación de cotizaciones personalizadas y agendamiento de citas en tienda. Estos tres flujos suelen representar el 70% de las conversaciones en una joyería."
+          },
+          {
+            "label": "Paso 3: Conecta tu WhatsApp Business API con un CRM inteligente",
+            "content": "La magia ocurre cuando tu agente de IA no solo responde, sino que registra cada interacción en un CRM. Así sabes quién es cada cliente, qué ha consultado, qué cotizaciones tiene pendientes y cuándo fue su último contacto. Esto permite personalización real: \"Hola Carlos, hace dos meses cotizaste una cadena de oro para tu esposa. ¿Te gustaría ver las novedades que llegaron esta semana?\""
+          },
+          {
+            "label": "Paso 4: Entrena y ajusta con conversaciones reales",
+            "content": "Las primeras dos semanas son de calibración. Revisa las conversaciones que el agente de IA maneja, identifica respuestas que pueden mejorar y ajusta el tono para que refleje la personalidad de tu marca. Una joyería de alta gama en Las Condes, Santiago, necesita un tono diferente al de una tienda de plata artesanal en Taxco, México. La IA se adapta, pero necesita tu guía inicial."
+          },
+          {
+            "label": "Paso 5: Mide, optimiza y escala",
+            "content": "Monitorea métricas clave: tasa de respuesta en menos de 1 minuto, porcentaje de cotizaciones enviadas vs. ventas cerradas, citas agendadas vs. citas efectivas, y satisfacción del cliente. Con estos datos, podrás decidir cuándo sumar nuevos flujos (postventa, garantías, programas de lealtad) y expandir a otros canales como Instagram o Facebook Messenger."
+          }
+        ]
+      },
+      {
+        "type": "bullets",
+        "title": "Resultados que están viendo joyerías con IA conversacional en LATAM",
+        "bullets": [
+          {
+            "text": "Reducción del 65% en tiempo de primera respuesta al cliente, pasando de un promedio de 47 minutos a menos de 30 segundos.",
+            "negative": false
+          },
+          {
+            "text": "Incremento del 40% en cotizaciones enviadas por mes, gracias a la generación automática e instantánea de propuestas personalizadas.",
+            "negative": false
+          },
+          {
+            "text": "Aumento del 28% en la tasa de conversión de consulta a venta, al eliminar la fricción entre el interés del cliente y la respuesta del negocio.",
+            "negative": false
+          },
+          {
+            "text": "Recuperación de hasta un 22% de carritos abandonados o cotizaciones sin respuesta mediante seguimientos automatizados inteligentes.",
+            "negative": false
+          },
+          {
+            "text": "Atención 24/7 sin necesidad de contratar turnos nocturnos ni personal adicional para fines de semana y días festivos.",
+            "negative": false
+          },
+          {
+            "text": "Mayor satisfacción del equipo de ventas, que ahora se enfoca en cerrar negocios de alto valor en lugar de responder preguntas repetitivas.",
+            "negative": false
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "title": "Por qué Clientador es la plataforma ideal para joyerías en México, Colombia y Chile",
+        "content": "Existen muchas herramientas de automatización en el mercado, pero pocas están diseñadas pensando en las necesidades reales de pymes latinoamericanas. Clientador combina todo lo que una joyería necesita en una sola plataforma: agentes de IA conversacional conectados a WhatsApp Business API, un CRM inteligente que registra el historial completo de cada cliente, agenda automática para citas en tienda y un panel de métricas que te muestra exactamente cómo rinde cada conversación.\n\nLo que hace diferente a Clientador es que no necesitas ser experto en tecnología para configurarlo. La plataforma te guía para cargar tu catálogo, definir tus flujos de conversación y entrenar a tu asistente IA con el tono y la personalidad de tu marca. Además, el soporte está en español y entiende el contexto del mercado latinoamericano: los métodos de pago locales, las temporadas altas de cada país (Día de las Madres en México, Amor y Amistad en Colombia, Navidad en toda la región) y las particularidades de vender artículos de valor por canales digitales.\n\nYa sea que tengas una sola tienda en Providencia, tres sucursales en Ciudad de México o un e-commerce que despacha a toda Colombia, Clientador se adapta a tu operación. Y lo más importante: puedes empezar a ver resultados desde la primera semana, porque los flujos más impactantes —consultas, cotizaciones y agendamiento— se configuran en días, no en meses."
+      }
+    ],
+    "ctaTitle": "Tu joyería merece un asistente que nunca duerme y siempre vende",
+    "ctaDescription": "Agenda una demo personalizada con el equipo de Clientador y descubre cómo un agente de IA puede responder consultas, enviar cotizaciones y agendar citas en tu joyería desde el primer día. Sin contratos largos, sin complicaciones técnicas: solo resultados."
   }
 ]
